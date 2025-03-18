@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'InvernaderoInteligenteAngular';
+  showNav: boolean = true; // ✅ Se declara correctamente
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Oculta la navegación en estas rutas
+        this.showNav = !['/crear-cuenta', '/recuperar-contrasena', '/pagina-principal', '/usuarios', '/detalle-invernadero', '/estadisticas'].includes(event.url);
+      }
+    });
+  }
 }
+
+

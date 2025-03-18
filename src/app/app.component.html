@@ -1,14 +1,17 @@
 <main class="main">
-    <nav>
+    <nav *ngIf="showNav">
         <ul>
-          <li><a routerLink="/crear-cuenta" routerLinkActive="active">Crear Cuenta</a></li>
-          <li><a routerLink="/recuperar-contrasena" routerLinkActive="active">Recuperar Contraseña</a></li>
-          <li><a routerLink="/pagina-principal" routerLinkActive="active">Página Principal</a></li>
-          <li><a routerLink="/usuarios" routerLinkActive="active">Usuarios</a></li>
+          <li><a routerLink="/crear-cuenta">Crear Cuenta</a></li>
+          <li><a routerLink="/recuperar-contrasena" >Recuperar Contraseña</a></li>
+          <li><a routerLink="/pagina-principal" >Página Principal</a></li>
+          <li><a routerLink="/usuarios">Usuarios</a></li>
+          <li><a routerLink="/detalle-invernadero" >DetalleInvernadero</a></li>
+          <li><a routerLink="/estadisticas">Estadisticas</a></li>
         </ul>
       </nav>
       
-      
+
+      <router-outlet></router-outlet>
 </main>
 
-<router-outlet/>
+
