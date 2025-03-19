@@ -1,28 +1,128 @@
-body {
-    background-color: white;
-    display: flex;
-}
-
-
+/* Estilos generales para la barra de navegación */
 .navbar {
+    background-color: #6b8e23; /* Color verde oliva */
     display: flex;
-    justify-content: space-between; /* Espaciado automático */
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  
+  /* Estilos para los enlaces de navegación */
+  .navbar a {
+    color: white;
+    text-decoration: black;
+    margin: 0 15px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+  
+  .navegacion{
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+    display: inline-block;
+  }
+  /* Cambios al pasar el mouse sobre los enlaces */
+  .navegacion:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la letra al pasar el cursor */
+  }
+  
+  .logo {
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #5a703d;
-    padding: 30px 15px;
-    
-
-}
-
-
-.navbar a {
+    width: 150px;
+    height: 33px;
+    border-radius: 30px 0 0 30px;
+  }
+  
+  .user-info a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 8px 12px;
-    transition: background 0.3s;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: normal;
+    justify-content: baseline;
+  }
+  
+  .user-image{
+    width: 20px;
+    height: 20px;
+  }
+
+
+
+/* Contenedor externo centrado verticalmente */
+.outer-container {
+    position: fixed;
+    top: 50%; /* Centro vertical */
+    left: 20px; /* Lado izquierdo */
+    transform: translateY(-50%); /* Mantenerlo centrado */
+    background-color: #8eab6b; /* Fondo azul claro */
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 30px 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 360px; /* Ancho del cuadro */
+    height: 500px; /* Altura del cuadro */
+    display: flex; /* Colocar contenido en columnas */
+    flex-direction: column;
+    justify-content: space-around; /* Distribuir las tarjetas proporcionalmente */
 }
 
-.si {
-    padding: 0px 0px 0px 5px;
+/* Ajustes para las tarjetas */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre tarjetas */
+    width: 100%; /* Se adapta al cuadro externo */
+    height: 100%; /* Ocupar toda la altura del cuadro */
 }
+
+.card {
+    display: flex;
+    align-items: center; /* Alinear imagen, texto y porcentaje verticalmente */
+    justify-content: space-between; /* Espaciar elementos dentro de la tarjeta */
+    background-color: #fff;
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra */
+    border: 1px solid #ccc;
+    height: auto; /* Permitir que las tarjetas se ajusten automáticamente */
+    flex-grow: 1; /* Hacer que las tarjetas crezcan proporcionalmente */
+}
+
+/* Estilo de las imágenes dentro de las tarjetas */
+.card img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.card .text {
+    flex-grow: 1; /* Permitir que ocupe el espacio disponible */
+    text-align: left;
+}
+
+.card .percentage {
+    font-size: 1.4em; /* Destacar los valores */
+    font-weight: bold;
+    text-align: right; /* Alinear el porcentaje a la derecha */
+    margin-left: auto; /* Empujar el porcentaje al extremo derecho */
+}
+
+
+ 
+
+
