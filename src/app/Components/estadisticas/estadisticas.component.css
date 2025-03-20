@@ -61,66 +61,84 @@
     height: 20px;
   }
 
-
-
-/* Contenedor externo centrado verticalmente */
-.outer-container {
-    position: fixed;
-    top: 50%; /* Centro vertical */
-    left: 20px; /* Lado izquierdo */
-    transform: translateY(-50%); /* Mantenerlo centrado */
-    background-color: #8eab6b; /* Fondo azul claro */
-    border: 2px solid #ccc; /* Borde */
-    border-radius: 15px; /* Esquinas redondeadas */
-    padding: 30px 20px; /* Espaciado interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    width: 360px; /* Ancho del cuadro */
-    height: 500px; /* Altura del cuadro */
-    display: flex; /* Colocar contenido en columnas */
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh; /* Asegura que ocupe toda la altura de la pantalla */
     flex-direction: column;
-    justify-content: space-around; /* Distribuir las tarjetas proporcionalmente */
-}
+    text-align: center;
+    padding: 180px; /* Espaciado opcional */
+  }
+  
+  canvas {
+    width: 30%; /* Ajusta el ancho del gráfico */
+    height: 30px; /* Asegura una altura visible */
+    max-width: 40%; /* Evita que el gráfico se estire más allá de su contenedor */
+  }
+  
+  
+  
 
-/* Ajustes para las tarjetas */
-.container {
+
+  .outer-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaciado entre tarjetas */
-    width: 100%; /* Se adapta al cuadro externo */
-    height: 100%; /* Ocupar toda la altura del cuadro */
-}
-
-.card {
+    align-items: center;  /* Centra los elementos en el contenedor */
+    padding: 20px;
+  }
+  
+  .chart-container {
+    width: 80%; /* Ajusta el tamaño de la gráfica según sea necesario */
+    margin-bottom: 30px; /* Espacio entre la gráfica y las tarjetas */
+  }
+  
+  .container {
     display: flex;
-    align-items: center; /* Alinear imagen, texto y porcentaje verticalmente */
-    justify-content: space-between; /* Espaciar elementos dentro de la tarjeta */
+    justify-content: space-around; /* Distribuye las tarjetas equidistantemente */
+    width: 100%;
+    flex-wrap: wrap;  /* Permite que las tarjetas se muevan a la siguiente fila en pantallas pequeñas */
+    gap: 20px; /* Espacio entre las tarjetas */
+  }
+  
+  .card {
+    width: 30%;
+    min-width: 250px; /* Ancho mínimo de las tarjetas para evitar que se vuelvan demasiado pequeñas */
     background-color: #fff;
-    padding: 20px; /* Espaciado interno */
-    border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra */
-    border: 1px solid #ccc;
-    height: auto; /* Permitir que las tarjetas se ajusten automáticamente */
-    flex-grow: 1; /* Hacer que las tarjetas crezcan proporcionalmente */
-}
-
-/* Estilo de las imágenes dentro de las tarjetas */
-.card img {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-}
-
-.card .text {
-    flex-grow: 1; /* Permitir que ocupe el espacio disponible */
-    text-align: left;
-}
-
-.card .percentage {
-    font-size: 1.4em; /* Destacar los valores */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-size: 16px;
     font-weight: bold;
-    text-align: right; /* Alinear el porcentaje a la derecha */
-    margin-left: auto; /* Empujar el porcentaje al extremo derecho */
+  }
+  
+  .percentage {
+    font-size: 24px;
+    color: #333;
+  }
+  
+
+
+  /* Establecer color de fondo solo para el componente estadisticas */
+:host {
+  display: block;
+  background-color: #dae5d3; /* El color de fondo que desees */
+  height: 100%;
 }
+
+
+
+
 
 
  

@@ -1,48 +1,83 @@
-import { Component,OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
-
-
+import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-estadisticas',
-  imports: [],
   templateUrl: './estadisticas.component.html',
-  styleUrl: './estadisticas.component.css'
+  styleUrls: ['./estadisticas.component.css']
 })
-export class EstadisticasComponent implements OnInit {
-  public chart: any;
+export class EstadisticasComponent implements AfterViewInit, AfterViewChecked {
 
-  constructor() { }
+  @ViewChild('myChart') myChart!: ElementRef;
+  chartInstance: any;
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.createChart();
   }
 
+  ngAfterViewChecked(): void {
+    // Llamar a la actualización del gráfico si hay algún cambio en el DOM
+    if (this.chartInstance) {
+      this.chartInstance.resize();  // Redibujar el gráfico si el contenedor ha cambiado
+    }
+  }
+
   createChart() {
-    this.chart = new Chart('grafico', {
-      type: 'line', // Tipo de gráfico (línea)
+    const ctx = this.myChart.nativeElement.getContext('2d');
+
+    // Si ya existe una instancia del gráfico, destruirla
+    if (this.chartInstance) {
+      this.chartInstance.destroy();
+    }
+
+    // Crear un nuevo gráfico
+    this.chartInstance = new Chart(ctx, {
+      type: 'bar',
       data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'], // Etiquetas del eje X
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-          label: 'Temperatura', // Nombre de la serie de datos
-          data: [22, 25, 28, 24, 20], // Datos de la serie (temperaturas)
-          borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
-          borderWidth: 2, // Ancho de la línea
-          fill: false // No rellenar el área debajo de la línea
+          label: 'My First Dataset',
+          data: [65, 59, 80, 81, 56, 55, 40],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 205, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(201, 203, 207, 1)'
+          ],
+          borderWidth: 1
         }]
       },
       options: {
         responsive: true,
-        scales: { 
-
-          
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
     });
   }
+
+  // Método para actualizar el gráfico con nuevos datos (ejemplo)
+  updateChartData(newData: number[]) {
+    if (this.chartInstance) {
+      this.chartInstance.data.datasets[0].data = newData; // Actualiza los datos del gráfico
+      this.chartInstance.update(); // Fuerza la actualización del gráfico
+    }
+  }
 }
 
-function createChart() {
-  throw new Error('Function not implemented.');
-}
+
 
