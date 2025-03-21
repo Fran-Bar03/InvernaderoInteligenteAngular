@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes,provideRouter } from '@angular/router';
 import { CrearCuentaComponent } from './Components/crear-cuenta/crear-cuenta.component';
 import { RecuperarContrasenaComponent } from './Components/recuperar-contrasena/recuperar-contrasena.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
@@ -16,5 +16,8 @@ export const routes: Routes = [
 {path: 'iniciar-sesion', component : IniciarSesionComponent},
 {path: 'dashboards' , component: DashboardComponent},
 {path: 'invernaderos-card' , component: InvernaderosCardComponent},
-{path: 'tablero-principal' , component: TableroPrincipalComponent}
+{path: 'tablero-principal' , component: TableroPrincipalComponent},
+{path: '**',  redirectTo: '/iniciar-sesion', pathMatch: 'full'}
 ];
+
+export const appProviderRouter = [provideRouter(routes)];
