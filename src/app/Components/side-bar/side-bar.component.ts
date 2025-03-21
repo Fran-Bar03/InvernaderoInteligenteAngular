@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { Router, provideRouter } from '@angular/router';
+import { Route } from '@angular/router';
+import { appProviderRouter } from '../../app.routes';
+import { routes } from '../../app.routes';
+import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
 })

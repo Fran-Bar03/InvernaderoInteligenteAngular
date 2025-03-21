@@ -17,7 +17,7 @@ export const routes: Routes = [
 {path: 'dashboards' , component: DashboardComponent},
 {path: 'invernaderos-card' , component: InvernaderosCardComponent},
 {path: 'tablero-principal' , component: TableroPrincipalComponent},
-// {path: '**',  redirectTo: '/iniciar-sesion', pathMatch: 'full'}
+{path: '**',  redirectTo: '/iniciar-sesion', pathMatch: 'full'}
 ];
 
 export const appProviderRouter = [provideRouter(routes)];

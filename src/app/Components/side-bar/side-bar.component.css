@@ -2,7 +2,7 @@
 .sidebar {
   background-color: #354f31; /* Verde oscuro elegante */
   color: white;
-  display: flex;
+  display: fixed;
   flex-direction: column;
   justify-content: flex-start;
   padding: 10px;
@@ -17,11 +17,12 @@
 /* Contenedor de la imagen en el sidebar */
 .sidebar-logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .sidebar-logo img {
-  max-width: 150px;
+  margin-top: 20px;
+  max-width: 100px;
   height: auto;
   border-radius: 10px;
   width: 100%;
@@ -59,13 +60,13 @@
 
 .items {
   margin-top: 20px;
-  padding: 0;
+  padding: 10px;
 }
 
 .items li {
   list-style: none;
   font-size: x-large;
-  padding: 10px;
+  padding: 5px;
 }
 
 .items a {
