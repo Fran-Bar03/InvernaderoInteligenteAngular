@@ -1,0 +1,9 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}

@@ -18,7 +18,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // Oculta la navegación en estas rutas
-        this.showNav = !['/crear-cuenta', '/recuperar-contrasena', '/pagina-principal', '/usuarios', '/detalle-invernadero', '/estadisticas'].includes(event.url);
+        this.showNav = !['/crear-cuenta', '/recuperar-contrasena', '/pagina-principal', '/usuarios', '/iniciar-sesion', '/dashboards', '/tablero-principal', '/invernaderos-card'].includes(event.url);
       }
     });
   }

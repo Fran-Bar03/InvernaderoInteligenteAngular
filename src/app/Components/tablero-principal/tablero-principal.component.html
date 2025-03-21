@@ -1,0 +1,7 @@
+<div class="dashboard">
+    <app-invernaderos-card 
+        *ngFor="let invernadero of invernaderos"
+        [nombre]="invernadero.nombre"
+        [imagen]="invernadero.imagen">
+    </app-invernaderos-card>
+</div>

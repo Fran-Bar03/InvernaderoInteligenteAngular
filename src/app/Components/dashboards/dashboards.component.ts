@@ -1,25 +1,26 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
-import Chart from 'chart.js/auto';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Chart } from 'chart.js/auto';
 
 @Component({
-  selector: 'app-estadisticas',
-  templateUrl: './estadisticas.component.html',
-  styleUrls: ['./estadisticas.component.css']
+  selector: 'app-dashboards',
+  imports: [CommonModule],
+  templateUrl: './dashboards.component.html',
+  styleUrls: ['./dashboards.component.css']
 })
-export class EstadisticasComponent implements AfterViewInit, AfterViewChecked {
-
+export class DashboardComponent implements AfterViewInit {
   @ViewChild('myChart') myChart!: ElementRef;
   chartInstance: any;
 
+  // Datos para las tarjetas
+  items = [
+    { title: 'Card 1', description: 'Descripción de la tarjeta 1' },
+    { title: 'Card 2', description: 'Descripción de la tarjeta 2' },
+    { title: 'Card 3', description: 'Descripción de la tarjeta 3' },
+  ];
+
   ngAfterViewInit(): void {
     this.createChart();
-  }
-
-  ngAfterViewChecked(): void {
-    // Llamar a la actualización del gráfico si hay algún cambio en el DOM
-    if (this.chartInstance) {
-      this.chartInstance.resize();  // Redibujar el gráfico si el contenedor ha cambiado
-    }
   }
 
   createChart() {
@@ -30,13 +31,13 @@ export class EstadisticasComponent implements AfterViewInit, AfterViewChecked {
       this.chartInstance.destroy();
     }
 
-    // Crear un nuevo gráfico
+    // Crear el nuevo gráfico
     this.chartInstance = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-          label: 'My First Dataset',
+          label: 'Mi Primer Dataset',
           data: [65, 59, 80, 81, 56, 55, 40],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -66,10 +67,11 @@ export class EstadisticasComponent implements AfterViewInit, AfterViewChecked {
             beginAtZero: true
           }
         }
+        
       }
+      
     });
   }
-
   // Método para actualizar el gráfico con nuevos datos (ejemplo)
   updateChartData(newData: number[]) {
     if (this.chartInstance) {
@@ -78,6 +80,3 @@ export class EstadisticasComponent implements AfterViewInit, AfterViewChecked {
     }
   }
 }
-
-
-
