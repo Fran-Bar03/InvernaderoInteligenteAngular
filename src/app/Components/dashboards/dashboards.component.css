@@ -1,144 +1,123 @@
-/* Estructura General */
-/* Layout general */
+/* Dashboard Layout */
 .dashboard-layout {
-    display: grid;
-    margin-left: 250px;
-    grid-template-columns: 250px 1fr;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Fondo claro y limpio */
-  }
+  margin-left: 250px; /* Compensa el ancho del sidebar */
+  width: calc(100% - 250px); /* Asegura que ocupe el espacio restante */
+  height: 100vh;
+  display: block;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box; /* Incluye el relleno dentro del ancho */
+}
 
+/* Contenido Principal */
+.main-content {
+  margin: 0 auto; /* Centrado automático */
+  max-width: 1200px; /* Ancho máximo ajustado al diseño */
+  display: grid;
+  grid-template-rows: auto auto; /* Una fila para gráficas y otra para tarjetas */
+  gap: 30px; /* Espaciado entre filas */
+}
 
-
-  
-  /* Contenido principal */
-  .main-content {
-    padding: 5px;
-    margin-top: -30px;
-  }
-  
-  header h1 {
-    font-size: 28px;
-    color: #354f31; /* Combina con la sidebar */
-    margin-bottom: 30px;
-  }
-  
-  /* Tarjetas */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 130px;
-  }
-  
-  .card {
-    background-color: #f1f8e9;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-  
-  .card h3 {
-    font-size: 18px;
-    color: #354f31;
-  }
-  
-  .card p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #6b8e23;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-    .dashboard-layout {
-      grid-template-columns: 1fr; /* Sidebar arriba en móviles */
-    }
-  
-    .sidebar {
-      flex-direction: row;
-      height: auto;
-      width: 100%;
-      justify-content: space-between;
-      padding: 10px;
-    }
-  
-    .menu-items {
-      flex-direction: row;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .menu-items li {
-      margin: 0 10px;
-    }
-  
-    .cards {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-    }
-  
-    header h1 {
-      font-size: 22px;
-    }
-  
-    .card-icon {
-      font-size: 30px;
-    }
-  
-    .card p {
-      font-size: 20px;
-    }
-  }
-
-
-  /* Contenedor general para gráficas */
+/* Gráficas */
 .charts-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales */
-    gap: 20px; /* Espaciado entre gráficas */
-    margin-bottom: 30px; /* Espaciado entre las gráficas y las tarjetas */
-    margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales para gráficas */
+  gap: 30px; /* Separación entre gráficas */
+  width: 100%; /* Ocupa todo el espacio disponible */
+  margin: 0 auto; /* Centra el contenedor */
+  margin-top: 50px;
+}
+
+.chart-container-left,
+.chart-container-right {
+  background-color: #f1f8e9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  min-height: 350px; /* Altura uniforme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  display: grid;
+  grid-auto-flow: column; /* Asegura que las tarjetas se organicen en una fila */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Distribución dinámica en una fila */
+  gap: 10px; /* Espaciado pequeño entre tarjetas */
+  margin-top: 100px;
+  justify-content: center; /* Centra las tarjetas horizontalmente en el contenedor */
+}
+
+.card {
+  background-color: #f1f8e9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  width: 180px; /* Ancho compacto para las tarjetas */
+  height: 100px; /* Altura compacta para evitar que sean muy altas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suave transición al pasar el cursor */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de ampliación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.card h3 {
+  font-size: 14px; /* Texto más pequeño para el título */
+  color: #354f31;
+  transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+  color: #6b8e23; /* Cambia a un verde más claro en hover */
+}
+
+.card p {
+  font-size: 16px; /* Ajusta el tamaño del texto para adaptarse al nuevo diseño */
+  color: #6b8e23;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card:hover p {
+  color: #354f31; /* Cambio de color para el texto principal */
+}
+
+
+
+/* Media Queries para Dashboard */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    margin-left: 200px; /* Ajusta para el ancho reducido del sidebar */
+    width: calc(100% - 200px);
   }
-  
-  /* Gráfica izquierda */
-  .chart-container-left {
-    background-color: #f1f8e9; /* Fondo claro */
-    border-radius: 10px;
-    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .charts-container {
+    grid-template-columns: 1fr; /* Gráficas apiladas en pantallas pequeñas */
   }
-  
-  /* Gráfica derecha (vacío para ahora, por si la agregas después) */
-  .chart-container-right {
-    background-color: #f1f8e9;
-    border-radius: 10px;
-    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .cards {
+    grid-template-columns: 1fr; /* Tarjetas apiladas */
   }
-  
-  
-  
+}
+
+@media (max-width: 480px) {
+  .dashboard-layout {
+    margin-left: 0; /* Elimina compensación del sidebar */
+    width: 100%; /* Ocupa todo el ancho */
+  }
+}
+
+
+h1 {
+  color: #354f31; /* Verde oliva */
+  font-size: xx-large; /* Tamaño del texto (opcional, ajusta según prefieras) */
+  text-align: start; /* Opcional: centra el texto */
+  margin-top: 0px; /* Espaciado superior */
+  font-weight: bold;
+  font-family: 'Roboto',sans-serif;
+}

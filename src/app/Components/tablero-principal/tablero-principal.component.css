@@ -1,9 +1,137 @@
+.header-simple {
+  display: flex;
+  justify-content: space-between; /* Distribuye los elementos horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  padding: 10px 20px; /* Ajusta el espacio interno */
+  margin-left: 260px; /* Respeta el espacio del sidebar */
+  margin-right: 20px;
+  margin-bottom: 20px; /* Espacio debajo del header */
+  color: black;
+}
+
+.titulo-simple {
+  font-size: xx-large;
+  font-weight: bold;
+  margin: -10px;
+  margin-top: -10px;
+  color: #354f31;
+  font-family: 'Roboto',sans-serif;
+}
+
+.acciones-simple {
+  display: flex;
+  align-items: center; /* Centra la lupa y el botón verticalmente */
+  gap: 15px; /* Espacio entre los elementos */
+}
+
+.buscar-con-lupa {
+  position: relative;
+  cursor: pointer;
+  height: 40px; /* Tamaño fijo para la lupa */
+  width: 40px; /* Tamaño fijo para la lupa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lupa-icono {
+  font-size: 20px;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 50%; /* Forma redonda */
+  background-color: white;
+}
+
+.buscar-simple {
+  width: 200px; /* Tamaño del campo de texto */
+  padding: 8px;
+  border: 1px solid #354f31;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.buscar-simple:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.agregar-simple {
+  background-color: white; /* Fondo blanco */
+  color: black;
+  border: 2px solid #354f31; /* Borde negro */
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.agregar-simple:hover {
+  background-color: #354f31;
+  color: white;
+}
+
+  
+
+
+
+
+
+
+
+
+/* Configuración inicial */
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Mantén 3 columnas */
     gap: 30px;
-    padding: 20px;
-    justify-content: center;
-    max-width: 1000px;
+    padding: 150px;
+    max-width: 1100px;
     margin: 0 auto;
-}
+    height: calc(100vh - 400px);
+    align-items: center;
+    position: relative;
+    left: 130px; /* Desplazamiento hacia la derecha */
+  }
+  
+  /* Tarjetas responsivas */
+  .tarjeta-invernadero {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #b5bbac;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tarjeta-invernadero:hover {
+    color: chartreuse;
+    transform: scale(1.10);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Media Queries para diferentes tamaños de pantalla */
+  @media (max-width: 1200px) {
+    .dashboard {
+      grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas en pantallas medianas */
+      left: 100px; /* Ajusta el desplazamiento según el espacio disponible */
+      padding: 150px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard {
+      grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+      left: 50px; /* Ajusta el desplazamiento */
+      padding: 100px;
+    }
+  
+    .tarjeta-invernadero {
+      width: 90%; /* Asegura que las tarjetas se ajusten bien al ancho */
+      margin: 0 auto; /* Centra las tarjetas en la columna */
+    }
+  }
+  
+  

@@ -1,62 +1,47 @@
 <div class="dashboard-layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-         <!-- Imagen en la parte superior -->
-  <div class="sidebar-logo">
-    <!-- <img src="https://imgfz.com/i/MiQ5Jzs.png" alt="Logo" /> -->
-  </div>
-      <!-- <h2 class="menu-title">Invernadero Inteligente</h2>
-      <ul class="menu-items">
-        <li><a href="/invernaderos">Inicio</a></li>
-        <li><a href="/estadisticas">Estadísticas</a></li>
-      </ul>
-      <div class="logout">
-        <a href="/login">Cerrar Sesión</a>
-      </div> -->
-    </aside>
+  <header>
+    <h1 class="titlee">Dashboard</h1>
+  </header>
+  <!-- Contenido principal -->
+  <section class="main-content">
   
-    <!-- Contenido principal -->
-    <section class="main-content">
-      <header>
-        <h1>Dashboard</h1>
-      </header>
-  
-      <!-- Contenedor para gráficas -->
-      <div class="charts-container">
-        <!-- Gráfica izquierda -->
-        <div class="chart-container-left">
-          <canvas #myChart></canvas> <!-- Gráfica existente -->
-        </div>
-  
-        <!-- Gráfica derecha -->
-        <div class="chart-container-right">
-          <p>Espacio para otra gráfica</p> <!-- Placeholder para la segunda gráfica -->
-        </div>
+
+    <!-- Contenedor para gráficas -->
+    <div class="charts-container">
+      <!-- Gráfica izquierda -->
+      <div class="chart-container-left">
+        <canvas #myChart></canvas> <!-- Gráfica existente -->
       </div>
-  
-      <!-- Contenedor de las tarjetas -->
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">🌡️</div>
-          <h3>Temperatura</h3>
-          <p>25°C</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💧</div>
-          <h3>Humedad</h3>
-          <p>45%</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">☀️</div>
-          <h3>Luz Solar</h3>
-          <p>72%</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">✔️</div>
-          <h3>Estado General</h3>
-          <p>Óptimo</p>
-        </div>
+
+      <!-- Gráfica derecha -->
+      <div class="chart-container-right">
+        <p>Espacio para otra gráfica</p> <!-- Placeholder para la segunda gráfica -->
       </div>
-    </section>
-  </div>
-  
+    </div>
+
+    <!-- Contenedor de las tarjetas -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌡️</div>
+        <h3>Temperatura</h3>
+        <p>25°C</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3>Humedad</h3>
+        <p>45%</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☀️</div>
+        <h3>Luz Solar</h3>
+        <p>72%</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✔️</div>
+        <h3>Estado General</h3>
+        <p>Óptimo</p>
+      </div>
+    </div>
+  </section>
+</div>
+

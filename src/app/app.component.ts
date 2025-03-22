@@ -14,13 +14,19 @@ import { SideBarComponent } from "./Components/side-bar/side-bar.component";
 })
 export class AppComponent {
   title = 'InvernaderoInteligenteAngular';
-  showNav: boolean = true; // ✅ Se declara correctamente
+  showNav : boolean = true; // ✅ Se declara correctamente
+  showSidebar : boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // Oculta la navegación en estas rutas
-        this.showNav = !['/crear-cuenta', '/recuperar-contrasena', '/pagina-principal', '/usuarios', '/iniciar-sesion', '/dashboards', '/tablero-principal', '/invernaderos-card'].includes(event.url);
+        // Rutas donde la navegación NO se muestra
+        const routesWithoutNav = ['/crear-cuenta', '/recuperar-contrasena', '/usuarios', '/iniciar-sesion'];
+        this.showNav = !routesWithoutNav.includes(event.url);
+
+        // Rutas donde el sidebar NO se muestra
+        const routesWithoutSidebar = ['/crear-cuenta', '/recuperar-contrasena','/invernaderos-card', '/iniciar-sesion'];
+        this.showSidebar = !routesWithoutSidebar.includes(event.url);
       }
     });
   }

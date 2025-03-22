@@ -1,23 +1,19 @@
-invernaderos-card.component.css
 .tarjeta-invernadero {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #b5bbac;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarjeta-invernadero:hover {
   color: chartreuse;
-  transform: scale(1.10); /* Escala la tarjeta un 5% */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+  transform: scale(1.10);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .invernadero-contenido {
@@ -38,14 +34,13 @@ invernaderos-card.component.css
   margin-top: 10px;
 }
 
-.det-invernaderos{
+.det-invernaderos {
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: normal;
-  text-decoration: black;
+  text-decoration: none;
 }
 
-a:hover {
+.det-invernaderos:hover {
   text-decoration: underline;
 }

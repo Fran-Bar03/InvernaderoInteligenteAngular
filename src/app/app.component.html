@@ -21,12 +21,9 @@
   <div class="row">
     <div>  
       
-     
-    
-      
     </div>
     <div  >
-      <router-outlet></router-outlet>   <app-side-bar></app-side-bar> 
+      <router-outlet></router-outlet>   <app-side-bar *ngIf="showSidebar"></app-side-bar> 
     </div>
   </div>
 </main>
