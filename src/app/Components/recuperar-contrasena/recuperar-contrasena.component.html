@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
     <div class="background">
       <div class="header">
@@ -13,8 +14,21 @@
   
           <button type="button">Recuperar contraseña</button>
           <p>¿Tienes una cuenta? <a routerLink="/iniciar-sesion">Iniciar sesión</a></p>
+=======
+<div class="recuperar-contrasena-container">
+  <h2>Recuperar Contraseña</h2>
+>>>>>>> 764a259 (Modificacion en interfaces y agregación de modal)
 
-        </form>
-      </div>
-    </div>
-  </div>
+  <form [formGroup]="codigoForm" (ngSubmit)="cambiarContrasena()">
+    <label for="codigo">Código de Recuperación:</label>
+    <input id="codigo" type="text" formControlName="codigo" placeholder="Ingrese el código" />
+
+    <label for="nuevaContrasena">Nueva Contraseña:</label>
+    <input id="nuevaContrasena" type="password" formControlName="nuevaContrasena" placeholder="Ingrese la nueva contraseña" />
+
+    <label for="confirmarContrasena">Confirmar Contraseña:</label>
+    <input id="confirmarContrasena" type="password" formControlName="confirmarContrasena" placeholder="Confirme la nueva contraseña" />
+
+    <button type="submit" [disabled]="codigoForm.invalid">Cambiar Contraseña</button>
+  </form>
+</div>

@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   width: 250px; /* Ancho del sidebar */
+  width: 210px; /* Ancho del sidebar */
   height: 100vh; /* Ocupa toda la altura de la pantalla */
   overflow: hidden; /* Evita desbordamientos */
   display: flex; /* Flexbox para organizar elementos */

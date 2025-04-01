@@ -1,0 +1,68 @@
+.codigo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(90, 112, 61, 0.8), rgba(90, 112, 61, 0.8)), 
+                url('http://imgfz.com/i/FRmaDIN.jpeg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+.codigo-box {
+  background: rgb(90, 112, 61);  /* Color sólido */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 500px;
+}
+
+.codigo-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.codigo-inputs input {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #ccc;
+}
+
+input:hover {
+  border-color: black; /* Cambia el color del borde */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Agrega sombra */
+}
+
+.recuperar-btn{
+  background-color: #fff;
+    color: #228B22;  /* Verde bosque */
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 200px;
+    align-items: center;
+    display: block;
+    margin: 20px auto;
+}
+
+a {
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: underline;
+  cursor: pointer;
+}
