@@ -5,6 +5,24 @@
   background: linear-gradient(rgba(90, 112, 61, 0.8), rgba(90, 112, 61, 0.8)), 
                 url('http://imgfz.com/i/FRmaDIN.jpeg') no-repeat center center/cover;
   height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.header h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
 }
 
 .codigo-box {
@@ -19,24 +37,26 @@
 }
 
 .codigo-inputs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap; 
 }
 
 .codigo-inputs input {
   width: 40px;
-  height: 40px;
-  font-size: 24px;
-  text-align: center;
-  border: none;
-  border-radius: 8px;
-  background-color: #fff;
-  color: #000;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-  border: 2px solid #ccc;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #ccc;
+    margin-right: 8px;
 }
 
 input:hover {
@@ -66,3 +86,16 @@ a {
   text-decoration: underline;
   cursor: pointer;
 }
+
+  /* Para navegadores WebKit (Chrome, Safari, Edge) */
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Para Firefox */
+  input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  }

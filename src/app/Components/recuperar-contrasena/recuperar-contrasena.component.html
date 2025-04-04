@@ -1,34 +1,16 @@
-<<<<<<< HEAD
-<div class="container">
-    <div class="background">
-      <div class="header">
-        <h1>INVERNADERO INTELIGENTE</h1>
-        <h2>¿Olvidaste tu contraseña?</h2>
-      </div>
-  
-      <div class="form-container">
-        <form>
-          <label>CORREO ELECTRÓNICO</label>
-          <input type="email" placeholder="hola@gmail.com">
-  
-  
-          <button type="button">Recuperar contraseña</button>
-          <p>¿Tienes una cuenta? <a routerLink="/iniciar-sesion">Iniciar sesión</a></p>
-=======
 <div class="recuperar-contrasena-container">
-  <h2>Recuperar Contraseña</h2>
->>>>>>> 764a259 (Modificacion en interfaces y agregación de modal)
+  <div class="header">
+    <h1>INVERNADERO INTELIGENTE</h1>
+    <h2>Recuperar contraseña</h2>
+  </div>
 
-  <form [formGroup]="codigoForm" (ngSubmit)="cambiarContrasena()">
-    <label for="codigo">Código de Recuperación:</label>
-    <input id="codigo" type="text" formControlName="codigo" placeholder="Ingrese el código" />
-
+  <form class="form-container" [formGroup]="codigoForm" (ngSubmit)="cambiarContrasena()">
     <label for="nuevaContrasena">Nueva Contraseña:</label>
     <input id="nuevaContrasena" type="password" formControlName="nuevaContrasena" placeholder="Ingrese la nueva contraseña" />
 
     <label for="confirmarContrasena">Confirmar Contraseña:</label>
     <input id="confirmarContrasena" type="password" formControlName="confirmarContrasena" placeholder="Confirme la nueva contraseña" />
 
-    <button type="submit" [disabled]="codigoForm.invalid">Cambiar Contraseña</button>
+    <button type="submit" [disabled]="codigoForm.invalid" routerLink="">Cambiar Contraseña</button>
   </form>
 </div>

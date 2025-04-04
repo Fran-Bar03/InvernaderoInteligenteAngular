@@ -11,24 +11,7 @@
           <label>CORREO ELECTRÓNICO</label>
           <input type="email" placeholder="hola@gmail.com">
   
-          <button type="button" (click)="openModal()">Envíar código</button>
-          <app-modal-codigo [isModalOpen]="modalOpen" (close)="closeModal()">
-            <div class="codigo-container">
-              <div class="codigo-box">
-                <h2>Ingresa el código que llegó a tu correo</h2>
-                <p>Como medida de seguridad adicional, ingresa el código de 6 dígitos que enviamos </p>
-                <div class="codigo-inputs" *ngFor="let codigo of codigoRecuperacion; let i = index">
-                  <input type="number" maxlength="1" class="codigo-input" min="0" max="9" oninput="this.value = this.value.slice(0, 1)"
-                  #codigoInput
-                  (input)="handleInput($event, i)" 
-                  (keydown)="handleBackspace($event, i)">
-                </div>
-            
-                <button class="recuperar-btn">Ingresar código</button>
-                <p><a routerLink="/recuperar-contrasena">Reenvíar código</a></p>
-              </div>
-            </div>  
-          </app-modal-codigo>
+          <button type="button" routerLink="/recuperar-codigo">Envíar código</button>
           <p>¿Tienes una cuenta? <a routerLink="/iniciar-sesion">Iniciar sesión</a></p>
         </form>
       </div>

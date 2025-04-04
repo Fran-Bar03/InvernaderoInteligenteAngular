@@ -1,31 +1,8 @@
-<!-- <main class="main">
-  <nav *ngIf="showNav">
-      <ul>
-        <li><a routerLink="/crear-cuenta">Crear Cuenta</a></li>
-        <li><a routerLink="/recuperar-contrasena" >Recuperar Contraseña</a></li>
-        <li><a routerLink="/usuarios">Usuarios</a></li>
-        <li><a routerLink="/iniciar-sesion" >Iniciar Sesion</a></li>
-        <li><a routerLink="/dashboards">Dashboard</a></li>
-        <li><a routerLink="/invernaderos-card">invernaderos card</a></li>
-        <li><a routerLink="/tablero-principal">Pagina Principal</a></li>
-      </ul>
-    </nav>
-    
+<div class="app-container">
+  <app-side-bar *ngIf="!isAuthRoute()"></app-side-bar> 
 
+  <!-- Contenido principal -->
+  <div class="main-content">
     <router-outlet></router-outlet>
-</main> 
- -->
-
-
-<main class="container-fluid">
-  <div class="row">
-    <div>  
-      
-    </div>
-    <div  >
-      <router-outlet></router-outlet>   <app-side-bar></app-side-bar> 
-    </div>
   </div>
-</main>
-
-  
+</div>

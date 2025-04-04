@@ -1,18 +1,11 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { RouterLink } from '@angular/router';
-
-@Component({
-  selector: 'app-recuperar-contrasena',
-  imports: [RouterLink],
-=======
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recuperar-contrasena',
-  imports: [CommonModule, ReactiveFormsModule],
->>>>>>> 764a259 (Modificacion en interfaces y agregación de modal)
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './recuperar-contrasena.component.html',
   styleUrl: './recuperar-contrasena.component.css'
 })
@@ -27,7 +20,6 @@ export class RecuperarContrasenaComponent {
     });
 
     this.codigoForm = this.fb.group({
-      codigo: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       nuevaContrasena: ['', [Validators.required, Validators.minLength(6)]],
       confirmarContrasena: ['', [Validators.required]]
     });

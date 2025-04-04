@@ -9,21 +9,39 @@ import { TableroPrincipalComponent } from './Components/tablero-principal/tabler
 import { RecuperarCodigoComponent } from './Components/recuperar-codigo/recuperar-codigo.component';
 import { OlvidasteContrasenaComponent } from './Components/olvidaste-contrasena/olvidaste-contrasena.component';
 import { ModalCodigoComponent } from './Components/modal-codigo/modal-codigo.component';
-
+import { ContenidoLayoutComponent } from './layouts/contenido-layout/contenido-layout.component';
+import { AutentificacionesLayoutComponent } from './layouts/autentificaciones-layout/autentificaciones-layout.component';
 
 export const routes: Routes = [
-
-{path : 'crear-cuenta', component: CrearCuentaComponent},
-{path: 'recuperar-contrasena', component : RecuperarContrasenaComponent},
-{path: 'usuarios', component: UsuariosComponent},
-{path: 'iniciar-sesion', component : IniciarSesionComponent},
-{path: 'dashboards' , component: DashboardComponent},
-{path: 'invernaderos-card' , component: InvernaderosCardComponent},
-{path: 'tablero-principal' , component: TableroPrincipalComponent},
-{path: 'olvidaste-contrasena', component: OlvidasteContrasenaComponent},
-{path: 'recuperar-codigo', component: RecuperarCodigoComponent},
-{path: 'modal-codigo' , component: ModalCodigoComponent},
-{path: '**',  redirectTo: '/iniciar-sesion', pathMatch: 'full'}
+  {
+    path: '',
+    redirectTo: '/iniciar-sesion', // O la ruta que tú quieras por defecto
+    pathMatch: 'full'
+  },
+{
+    path: '',
+    component: AutentificacionesLayoutComponent,
+    children: [
+      { path: 'iniciar-sesion', component: IniciarSesionComponent },
+      { path: 'crear-cuenta', component: CrearCuentaComponent },
+      { path: 'recuperar-contrasena', component: RecuperarContrasenaComponent },
+      { path: 'recuperar-codigo', component: RecuperarCodigoComponent },
+      { path: 'olvidaste-contrasena', component: OlvidasteContrasenaComponent }
+    ]
+  },
+  
+  // Rutas que usan el Layout Principal (con sidebar)
+  {
+    path: '',
+    component: ContenidoLayoutComponent,
+    children: [
+      { path: 'usuarios', component: UsuariosComponent },
+      { path: 'dashboards', component: DashboardComponent },
+      { path: 'invernaderos-card', component: InvernaderosCardComponent },
+      { path: 'tablero-principal', component: TableroPrincipalComponent },
+      { path: 'modal-codigo', component: ModalCodigoComponent }
+    ]
+  }
 ];
 
 export const appProviderRouter = [provideRouter(routes)];

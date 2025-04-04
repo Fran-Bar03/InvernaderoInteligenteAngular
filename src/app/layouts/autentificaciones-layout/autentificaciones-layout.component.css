@@ -1,0 +1,9 @@
+.autentificaciones-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(rgba(90, 112, 61, 0.8), rgba(90, 112, 61, 0.8)), 
+                url('http://imgfz.com/i/FRmaDIN.jpeg') no-repeat center center/cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }

@@ -1,13 +1,16 @@
 /* Dashboard Layout */
 .dashboard-layout {
-  margin-left: 250px; /* Compensa el ancho del sidebar */
-  width: calc(100% - 250px); /* Asegura que ocupe el espacio restante */
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ajusta según necesidad */
+  padding: 20px;
+  width: 100%; /* Asegura que ocupe el espacio restante */
   height: 100vh;
-  display: block;
+  display: flex;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   padding: 20px;
   box-sizing: border-box; /* Incluye el relleno dentro del ancho */
+  border-radius: 10px;
 }
 
 /* Contenido Principal */

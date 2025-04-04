@@ -4,12 +4,10 @@ import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { AutentificacionService } from '../../Services/autentificacion.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ModalCodigoComponent } from "../modal-codigo/modal-codigo.component";
-
 
 @Component({
   selector: 'app-olvidaste-contrasena',
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, ModalCodigoComponent, FormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './olvidaste-contrasena.component.html',
   styleUrls: ['./olvidaste-contrasena.component.css'],
 })
@@ -17,11 +15,8 @@ export class OlvidasteContrasenaComponent implements AfterViewInit {
   forgotPasswordForm: FormGroup;
   message: string = '';
 
-  //Variable para el modal
-  modalOpen = false;
 
-  //Array para el código de recuperación
- // Arrays para manejar los códigos
+ // Array para manejar los códigos
  codigoRecuperacion: string[] = new Array(6).fill("");
   
  // Manejo de inputs
@@ -69,13 +64,5 @@ export class OlvidasteContrasenaComponent implements AfterViewInit {
         (err) => (this.message = 'Error al enviar el correo.')
       );
     }
-  }
-
-  openModal() {
-    this.modalOpen = true;
-  }
-
-  closeModal() {
-    this.modalOpen = false;
   }
 }

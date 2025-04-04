@@ -16,14 +16,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'InvernaderoInteligenteAngular';
-  showNav: boolean = true; // ✅ Se declara correctamente
+  showNav: boolean = true;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // Oculta la navegación en estas rutas
-        this.showNav = !['/crear-cuenta', '/recuperar-contrasena', '/pagina-principal', '/usuarios', '/iniciar-sesion', '/dashboards', '/tablero-principal', '/invernaderos-card'].includes(event.url);
-      }
-    });
+  constructor(private router: Router) {}
+
+  isAuthRoute(): boolean {
+    return this.router.url.includes('/iniciar-sesion') || this.router.url.includes('/crear-cuenta');
   }
 }

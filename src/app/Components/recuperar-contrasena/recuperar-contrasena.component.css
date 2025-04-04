@@ -1,10 +1,38 @@
 .recuperar-contrasena-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(rgba(90, 112, 61, 0.8), rgba(90, 112, 61, 0.8)), 
+              url('http://imgfz.com/i/FRmaDIN.jpeg') no-repeat center center/cover;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .header {
     text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+  .form-container {
+    background: rgb(90, 112, 61);  /* Color sólido */
+    padding: 40px;
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
   
   h2 {
@@ -29,13 +57,23 @@
   }
   
   button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #fff;
+    color: #228B22;  /* Verde bosque */
     border: none;
     border-radius: 5px;
+    padding: 12px;
+    margin-top: 20px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 200px;
+    align-items: center;
+    display: block;
+    margin: 20px auto;
+  }
+
+  button:hover {
+    background-color: #f0f0f0;
   }
   
   button:disabled {

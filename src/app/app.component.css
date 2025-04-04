@@ -1,0 +1,15 @@
+.app-container {
+  display: flex;
+  height: 100vh; /* Ocupar toda la altura de la pantalla */
+}
+
+app-side-bar {
+  width: 230px; /* Ajusta el ancho del sidebar */
+  flex-shrink: 0; /* Evita que se reduzca su tamaño */
+}
+
+.main-content {
+  flex-grow: 1; /* Ocupar todo el espacio disponible */
+  padding: 20px; /* Espaciado para que no quede pegado */
+  overflow-x: auto;
+}
