@@ -1,47 +1,40 @@
-<div class="dashboard-layout">
-  <header>
-    <h1 class="titlee">Estadístiacas</h1>
-  </header>
-  <!-- Contenido principal -->
-  <section class="main-content">
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estadísticas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="dashboard-visual">
+    <h1 class="main-title">ESTADÍSTICAS</h1>
 
-    <!-- Contenedor para gráficas -->
-    <div class="charts-container">
-      <!-- Gráfica izquierda -->
-      <div class="chart-container-left">
-        <canvas #myChart></canvas> <!-- Gráfica existente -->
+    <!-- Sección de gráficas circulares -->
+    <section class="section">
+      <div class="section-title agua">GRÁFICAS</div>
+      <div class="charts-row">
+        <div class="chart-box">
+          <h3>Primera Gráfica</h3>
+          <canvas id="chart1"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Segunda Gráfica</h3>
+          <canvas id="chart2"></canvas>
+        </div>
       </div>
+    </section>
 
-      <!-- Gráfica derecha -->
-      <div class="chart-container-right">
-        <p>Espacio para otra gráfica</p> <!-- Placeholder para la segunda gráfica -->
+    <!-- Sección de indicadores -->
+    <section class="section">
+      <div class="section-title energia">CONSUMO GENERAL</div>
+      <div class="indicators-row">
+        <div class="indicator-card"><h3>Temperatura</h3></div>
+        <div class="indicator-card"><h3>Humedad</h3></div>
+        <div class="indicator-card"><h3>Luz Solar</h3></div>
+        <div class="indicator-card"><h3>Óptimo</h3></div>
       </div>
-    </div>
+    </section>
+  </div>
 
-    <!-- Contenedor de las tarjetas -->
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🌡️</div>
-        <h3>Temperatura</h3>
-        <p>25°C</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💧</div>
-        <h3>Humedad</h3>
-        <p>45%</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">☀️</div>
-        <h3>Luz Solar</h3>
-        <p>72%</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">✔️</div>
-        <h3>Estado General</h3>
-        <p>Óptimo</p>
-      </div>
-    </div>
-  </section>
-</div>
-
+</body>
+</html>

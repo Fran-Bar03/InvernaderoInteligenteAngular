@@ -21,6 +21,6 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   isAuthRoute(): boolean {
-    return this.router.url.includes('/iniciar-sesion') || this.router.url.includes('/crear-cuenta');
+    return this.router.url.includes('/iniciar-sesion') || this.router.url.includes('/crear-cuenta') || this.router.url.includes('/olvidaste-contrasena') || this.router.url.includes('/modal-codigo') || this.router.url.includes('/recuperar-contrasena') || this.router.url.includes('/recuperar-codigo');
   }
 }

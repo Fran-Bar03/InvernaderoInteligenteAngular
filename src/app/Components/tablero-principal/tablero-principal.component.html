@@ -1,17 +1,16 @@
 <div class="header-simple">
-    <h1 class="titulo-simple">Invernaderos</h1>
-    <div class="acciones-simple">
-      <input type="text" class="buscar-simple" placeholder="Buscar...">
-      <button class="agregar-simple">Agregar</button>
-    </div>
+  <h1 class="titulo-simple">Invernaderos</h1>
+  <div class="acciones-simple">
+    <input type="text" class="buscar-simple" placeholder="Buscar...">
+    <button class="agregar-simple">Buscar</button>
   </div>
-  
-  <div class="dashboard">
-    <div *ngFor="let invernadero of invernaderos">
-      <app-invernaderos-card 
-        [nombre]="invernadero.nombre"
-        [imagen]="invernadero.imagen">
-      </app-invernaderos-card>
-    </div>
+</div>
+
+<div class="dashboard">
+  <div *ngFor="let invernadero of invernaderos">
+    <app-invernaderos-card 
+      [nombre]="invernadero.nombre"
+      [imagen]="invernadero.imagen">
+    </app-invernaderos-card>
   </div>
-  
+</div>

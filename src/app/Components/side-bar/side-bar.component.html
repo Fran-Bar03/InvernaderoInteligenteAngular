@@ -1,17 +1,20 @@
 <div class="dashboard-layout">
-<aside class="sidebar">
-  <!-- Imagen en la parte superior -->
-<div class="sidebar-logo">
-<img src="https://imgfz.com/i/MiQ5Jzs.png" alt="Logo" />
-</div>
-<h2 class="title">Invernadero Inteligente</h2>
-<ul class="items">
- <li [routerLink]="['/tablero-principal']"><a class="a">Inicio</a></li>
- <li><a class="a" >Estadísticas</a></li>
-</ul>
-<div class="logout">
- <a routerLink="/iniciar-sesion">Cerrar Sesión</a>
-</div>
-</aside>
-</div>
-
+  <aside class="sidebar">
+    <!-- Imagen en la parte superior -->
+  <div class="sidebar-logo">
+  <img src="https://imgfz.com/i/MiQ5Jzs.png" alt="Logo" />
+  </div>
+  <h2 class="title">Invernadero Inteligente</h2>
+  <div class="welcome-message">
+    ¡Hola Emiliano!
+  </div>
+  <ul class="items">
+   <li [routerLink]="['/tablero-principal']"><a class="a">Inicio</a></li>
+   <li><a href="#">Perfil</a></li>
+   <li><a href="#">Configuración</a></li>
+  </ul>
+  <div class="logout">
+   <a routerLink="/iniciar-sesion">Cerrar Sesión</a>
+  </div>
+  </aside>
+  </div>  

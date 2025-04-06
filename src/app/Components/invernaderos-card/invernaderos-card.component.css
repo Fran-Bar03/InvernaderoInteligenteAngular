@@ -11,7 +11,7 @@
 }
 
 .tarjeta-invernadero:hover {
-  color: chartreuse;
+  color:white;
   transform: scale(1.10); /* Escala la tarjeta un 5% */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
 }

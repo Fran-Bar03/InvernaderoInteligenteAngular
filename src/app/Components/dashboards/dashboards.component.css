@@ -1,126 +1,212 @@
-/* Dashboard Layout */
-.dashboard-layout {
-  flex-wrap: wrap;
-  justify-content: space-between; /* Ajusta según necesidad */
-  padding: 20px;
-  width: 100%; /* Asegura que ocupe el espacio restante */
-  height: 100vh;
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  color: #333;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 45px;
+  color: #4a5d3c;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.dashboard-visual {
+  padding: 40px 80px;
   display: flex;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  padding: 20px;
-  box-sizing: border-box; /* Incluye el relleno dentro del ancho */
-  border-radius: 10px;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Contenido Principal */
-.main-content {
-  margin: 0 auto; /* Centrado automático */
-  max-width: 1200px; /* Ancho máximo ajustado al diseño */
-  display: grid;
-  grid-template-rows: auto auto; /* Una fila para gráficas y otra para tarjetas */
-  gap: 30px; /* Espaciado entre filas */
+.section {
+  background-color: #a9bc8d;
+  border-radius: 30px;
+  padding: 60px 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Gráficas */
-.charts-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales para gráficas */
-  gap: 30px; /* Separación entre gráficas */
-  width: 100%; /* Ocupa todo el espacio disponible */
-  margin: 0 auto; /* Centra el contenedor */
-  margin-top: 50px;
+.section:hover {
+  transform: scale(1.02);
 }
 
-.chart-container-left,
-.chart-container-right {
-  background-color: #f1f8e9;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  min-height: 350px; /* Altura uniforme */
+.section-title {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  padding: 12px 40px;
+  font-family: 'Georgia', serif;
+  border-radius: 20px;
+  background-color: #4a5d3c;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.agua {
+  background-color: #768b67;
+}
+
+.energia {
+  background-color: #b5c9a0;
+}
+
+.charts-row {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.chart-box {
+  background-color: #8c9b70;
+  border-radius: 20px;
+  padding: 25px;
+  width: 45%;
+  min-width: 280px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.chart-box:hover {
+  transform: translateY(-5px);
+}
+
+.chart-box h3 {
+  color: black;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.indicators-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.indicator-card {
+  background-color: #8c9b70;
+  border-radius: 25px;
+  width: 160px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.cards {
-  display: grid;
-  grid-auto-flow: column; /* Asegura que las tarjetas se organicen en una fila */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Distribución dinámica en una fila */
-  gap: 10px; /* Espaciado pequeño entre tarjetas */
-  margin-top: 100px;
-  justify-content: center; /* Centra las tarjetas horizontalmente en el contenedor */
+.indicator-card:hover {
+  transform: translateY(-5px);
+  background-color: #a0b580;
 }
 
-.card {
-  background-color: #f1f8e9;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.indicator-card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: black;
   text-align: center;
-  padding: 10px;
-  width: 180px; /* Ancho compacto para las tarjetas */
-  height: 100px; /* Altura compacta para evitar que sean muy altas */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suave transición al pasar el cursor */
 }
 
-.card:hover {
-  transform: scale(1.05); /* Efecto de ampliación */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+@media (max-width: 1024px) {
+  .dashboard-visual {
+    padding: 40px 20px;
+  }
+
+  .charts-row,
+  .indicators-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-box,
+  .indicator-card {
+    width: 80%;
+    min-width: 250px;
+  }
+
+  .indicator-card {
+    height: 140px;
+  }
 }
 
-.card h3 {
-  font-size: 14px; /* Texto más pequeño para el título */
-  color: #354f31;
-  transition: color 0.3s ease;
-}
-
-.card:hover h3 {
-  color: #6b8e23; /* Cambia a un verde más claro en hover */
-}
-
-.card p {
-  font-size: 16px; /* Ajusta el tamaño del texto para adaptarse al nuevo diseño */
-  color: #6b8e23;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.card:hover p {
-  color: #354f31; /* Cambio de color para el texto principal */
-}
-
-
-
-/* Media Queries para Dashboard */
 @media (max-width: 768px) {
-  .dashboard-layout {
-    margin-left: 200px; /* Ajusta para el ancho reducido del sidebar */
-    width: calc(100% - 200px);
+  .dashboard-visual {
+    padding: 20px;
   }
 
-  .charts-container {
-    grid-template-columns: 1fr; /* Gráficas apiladas en pantallas pequeñas */
+  .section {
+    padding: 30px 15px;
   }
 
-  .cards {
-    grid-template-columns: 1fr; /* Tarjetas apiladas */
+  .charts-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .chart-box {
+    width: 100%;
+    min-width: 200px;
+  }
+
+  .indicator-card {
+    min-width: 120px;
+    max-width: 140px;
   }
 }
 
-@media (max-width: 480px) {
-  .dashboard-layout {
-    margin-left: 0; /* Elimina compensación del sidebar */
-    width: 100%; /* Ocupa todo el ancho */
+@media (min-width: 1024px) {
+  .dashboard-visual {
+    padding: 40px 80px;
   }
-}
 
+  .section {
+    padding: 60px 40px;
+  }
 
-h1 {
-  color: #354f31; /* Verde oliva */
-  font-size: xx-large; /* Tamaño del texto (opcional, ajusta según prefieras) */
-  text-align: start; /* Opcional: centra el texto */
-  margin-top: 0px; /* Espaciado superior */
-  font-weight: bold;
-  font-family: 'Roboto',sans-serif;
+  .charts-row {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: nowrap; /* Evitar que las gráficas se envuelvan en pantallas pequeñas */
+  }
+  
+  .chart-box {
+    background-color: #8c9b70;
+    border-radius: 20px;
+    padding: 25px;
+    width: 48%; /* Ajusta ligeramente para mayor espacio */
+    min-width: 280px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .chart-box:hover {
+    transform: translateY(-5px);
+  }
+  
+
+  .indicators-row {
+    justify-content: space-between;
+  }
 }

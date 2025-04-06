@@ -1,13 +1,198 @@
-.header-simple{
-    font-family: Arial, Helvetica, sans-serif;
+/* Estilo global */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #d3d3d3; /* Color de fondo */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px; /* Añadido espacio a los lados */
+}
+
+/* Header */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #d3d3d3; /* Color de fondo */
+    color: #5a703d;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px; /* Más espacio debajo del header */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 60px; /* Añadido margen superior para que no esté pegado a la barra */
+}
+
+.header-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #5a703d;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo-simple {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #5a703d;
+}
+
+.acciones-simple {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.buscar-simple {
+    flex-grow: 1;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.buscar-simple:focus {
+    border-color: #7a8c5d;
+    box-shadow: 0 0 12px rgba(122, 140, 93, 0.6);
+    outline: none;
+}
+
+.agregar-simple {
+    background-color: white;
+    color: #5a703d;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.agregar-simple:hover {
+    background-color: #f0f0f0;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Uso de auto-fit para mejor responsividad */
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.invernadero-card {
+    background: #8c9b70;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.invernadero-card:hover {
+    background: #6f805a;
+    transform: scale(1.05);
+}
+
+.invernadero-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.invernadero-card h3 {
+    margin: 15px 0;
+    font-size: 20px;
+    color: #5a703d;
+}
+
+.ver-detalles {
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
+
+.invernaderos-title {
+    background-color: #5a703d;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', serif;
+    margin-top: 10px; /* Reduje el margen superior para disminuir el espacio */
 }
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Uso de auto-fit para mejor responsividad */
     gap: 30px;
     padding: 20px;
     justify-content: center;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
+    margin-top: 10px; /* Añadido para reducir el margen superior en el dashboard */
+}
+
+/* Media Queries para mejorar la responsividad */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 25px;
+        margin-top: 40px; /* Reducir margen superior en pantallas más pequeñas */
+    }
+
+    .dashboard {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .titulo-simple {
+        font-size: 32px;
+    }
+
+    .acciones-simple {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .titulo-simple {
+        font-size: 28px;
+    }
+
+    .acciones-simple {
+        width: 100%;
+    }
 }
