@@ -1,8 +1,9 @@
 /* Estilo global */
-body {
+html, body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #d3d3d3; /* Color de fondo */
+    width: 100%;
 }
 
 .container {
@@ -68,30 +69,151 @@ body {
     outline: none;
 }
 
-.agregar-simple {
-    background-color: white;
-    color: #5a703d;
+.btn-agregar {
+    background-color: #76944e; /* Fondo verde */
+    color: white;
     padding: 14px 18px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
+    display: flex;
+    position: fixed;
+    top: 70px; /* Ajusta según necesidad */
+    right: 30px; /* Distancia del borde derecho */
 }
 
-.agregar-simple:hover {
+.btn-agregar:hover {
     background-color: #f0f0f0;
+    color: black;
 }
 
+/*-------------------------------------------------------------------*/
+/*Diseño modal*/
+.contenido-principal {
+    margin-left: 100px; /* Coincide con el ancho del sidebar */
+    padding: 2rem;
+    position: relative; /* Necesario para posicionar el modal dentro */
+    margin-top: 120px;
+  }
+  
+  /* Fondo gris oscuro semitransparente solo dentro del contenido */
+  .modal-backdrop {
+    position: absolute; /* Cambiado de fixed a absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .input-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    max-width: 300px;
+  }
+  
+  .input-row .form-group {
+    flex: 1;
+  }
+  
+  /* Encabezado */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Botón cerrar */
+  .close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Botones de acción */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .btn-cancel,
+  .btn-save {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-cancel {
+    background-color: #ccc;
+  }
+  
+  .btn-save {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .selection-section {
+    margin-top: 2rem;
+  }
+  
+  .selection-list {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  
+  /*--------------------------------------------------------------------*/
 /* Dashboard */
 .dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Uso de auto-fit para mejor responsividad */
-    gap: 30px;
-    padding: 20px;
-    justify-content: center;
-    max-width: 1100px;
-    margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden; /* Previene el desbordamiento */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste responsivo */
+  gap: 30px; /* Espacio entre tarjetas */
+  padding: 20px;
+  justify-items: center; /* Centrar cada tarjeta dentro de su celda */
+  place-items: center; /* Centrar todos los elementos en la Grid */
+  margin: 0 auto; /* Centrar completamente el contenedor */
+  box-sizing: border-box; /* Evita problemas de tamaño */
 }
 
 .invernadero-card {
@@ -142,17 +264,6 @@ body {
     margin-top: 10px; /* Reduje el margen superior para disminuir el espacio */
 }
 
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Uso de auto-fit para mejor responsividad */
-    gap: 30px;
-    padding: 20px;
-    justify-content: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    margin-top: 10px; /* Añadido para reducir el margen superior en el dashboard */
-}
-
 /* Media Queries para mejorar la responsividad */
 @media (max-width: 1024px) {
     .header-container {
@@ -196,3 +307,5 @@ body {
         width: 100%;
     }
 }
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';

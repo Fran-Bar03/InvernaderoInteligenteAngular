@@ -30,13 +30,14 @@ html, body {
 .header {
   text-align: center;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .header h1 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 5px;
+  display: inline-block;
 }
 
 .header h2 {
@@ -46,26 +47,34 @@ html, body {
 
 .codigo-box {
   background: rgb(90, 112, 61);  /* Color sólido */
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
   text-align: center;
-  width: 320px;
   color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   width: 500px;
+  height: 370px;
+  margin: 0 auto;
+}
+
+.codigo-box h2 {
+  margin-bottom: 15px;
+}
+
+.codigo-box p {
+  margin-bottom: 30px;
 }
 
 .codigo-inputs {
-  display: inline-flex;
+    display: inline-flex;
     justify-content: center;
-    gap: 10px;
     margin-bottom: 20px;
     flex-wrap: nowrap; 
 }
 
 .codigo-inputs input {
-  width: 40px;
-    height: 40px;
+  width: 60px;
+    height: 60px;
     font-size: 24px;
     text-align: center;
     border: none;
@@ -75,7 +84,7 @@ html, body {
     outline: none;
     transition: all 0.3s ease-in-out;
     border: 2px solid #ccc;
-    margin-right: 8px;
+    margin: 0 5px;
 }
 
 input:hover {
@@ -104,6 +113,8 @@ a {
   font-weight: bolder;
   text-decoration: underline;
   cursor: pointer;
+  display: inline-block; /* Para que el margen funcione correctamente */
+  margin-top: 10px; /* Añadí margen superior */ 
 }
 
   /* Para navegadores WebKit (Chrome, Safari, Edge) */

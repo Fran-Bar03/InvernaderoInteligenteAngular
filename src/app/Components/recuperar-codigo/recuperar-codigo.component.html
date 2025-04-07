@@ -5,22 +5,73 @@
   </div>
   <div class="codigo-box">
     <h2>Ingresa el código que llegó a tu correo</h2>
-    <p>Como medida de seguridad adicional, ingresa el código de 6 dígitos que enviamos </p>
+    <p>Como medida de seguridad adicional, ingresa el código de 6 dígitos que enviamos.</p>
+
     <div class="codigo-inputs">
-      <input 
-        *ngFor="let codigo of codigoRecuperacion; let i = index"
-        type="number" 
-        maxlength="1" 
-        class="codigo-input" 
-        min="0" 
-        max="9" 
-        oninput="this.value = this.value.slice(0, 1)"
-        #codigoInput
-        (input)="handleInput($event, i)" 
-        (keydown)="handleBackspace($event, i)">
+      <div class="input-group">
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[0]"
+          (input)="handleInput($event, 0)"
+          (keydown)="handleBackspace($event, 0)"
+          #codigoInput
+        />
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[1]"
+          (input)="handleInput($event, 1)"
+          (keydown)="handleBackspace($event, 1)"
+          #codigoInput
+        />
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[2]"
+          (input)="handleInput($event, 2)"
+          (keydown)="handleBackspace($event, 2)"
+          #codigoInput
+        />
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[3]"
+          (input)="handleInput($event, 3)"
+          (keydown)="handleBackspace($event, 3)"
+          #codigoInput
+        />
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[4]"
+          (input)="handleInput($event, 4)"
+          (keydown)="handleBackspace($event, 4)"
+          #codigoInput
+        />
+        <input 
+          type="text" 
+          maxlength="1" 
+          class="codigo-input"
+          [value]="codigoRecuperacion[5]"
+          (input)="handleInput($event, 5)"
+          (keydown)="handleBackspace($event, 5)"
+          #codigoInput
+        />
+      </div>
     </div>
 
-    <button class="recuperar-btn" routerLink="/recuperar-contrasena">Ingresar código</button>
-    <p><a routerLink="">Reenvíar código</a></p>
+    <button class="recuperar-btn" (click)="validarCodigo()">Ingresar código</button>
+
+    <p *ngIf="mensajeError" class="error-message">{{ mensajeError }}</p>
+    <p *ngIf="mensajeExito" class="success-message">{{ mensajeExito }}</p>
+
+    <p><a href="javascript:void(0);" (click)="reenviarCodigo()">Reenviar código</a></p>
   </div>
-</div>  
+</div>
+

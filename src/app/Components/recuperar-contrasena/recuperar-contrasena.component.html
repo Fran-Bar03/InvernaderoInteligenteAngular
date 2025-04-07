@@ -6,11 +6,35 @@
 
   <form class="form-container" [formGroup]="codigoForm" (ngSubmit)="cambiarContrasena()">
     <label for="nuevaContrasena">Nueva Contraseña:</label>
-    <input id="nuevaContrasena" type="password" formControlName="nuevaContrasena" placeholder="Ingrese la nueva contraseña" />
+    <input 
+      id="nuevaContrasena" 
+      type="password" 
+      formControlName="nuevaContrasena" 
+      placeholder="Ingrese la nueva contraseña" 
+      [ngClass]="{'ng-invalid': codigoForm.controls['nuevaContrasena'].invalid && codigoForm.controls['nuevaContrasena'].touched, 'ng-valid': codigoForm.controls['nuevaContrasena'].valid && codigoForm.controls['nuevaContrasena'].touched}" 
+      aria-label="Nueva Contraseña"
+    />
 
     <label for="confirmarContrasena">Confirmar Contraseña:</label>
-    <input id="confirmarContrasena" type="password" formControlName="confirmarContrasena" placeholder="Confirme la nueva contraseña" />
+    <input 
+      id="confirmarContrasena" 
+      type="password" 
+      formControlName="confirmarContrasena" 
+      placeholder="Confirme la nueva contraseña" 
+      [ngClass]="{'ng-invalid': codigoForm.controls['confirmarContrasena'].invalid && codigoForm.controls['confirmarContrasena'].touched, 'ng-valid': codigoForm.controls['confirmarContrasena'].valid && codigoForm.controls['confirmarContrasena'].touched}" 
+      aria-label="Confirmar Contraseña"
+    />
 
-    <button type="submit" [disabled]="codigoForm.invalid" routerLink="">Cambiar Contraseña</button>
+    <button type="submit" [disabled]="codigoForm.invalid || loading" [class.disabled]="loading">Cambiar Contraseña</button>
   </form>
+
+  <div *ngIf="loading">Cambiando contraseña...</div>
+
+  <div *ngIf="mensajeError" class="mensaje-error">
+    {{ mensajeError }}
+  </div>
+  <div *ngIf="mensajeExito" class="mensaje-exito">
+    {{ mensajeExito }}
+  </div>
 </div>
+

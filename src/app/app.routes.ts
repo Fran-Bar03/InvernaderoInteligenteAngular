@@ -11,6 +11,8 @@ import { OlvidasteContrasenaComponent } from './Components/olvidaste-contrasena/
 import { ModalCodigoComponent } from './Components/modal-codigo/modal-codigo.component';
 import { ContenidoLayoutComponent } from './layouts/contenido-layout/contenido-layout.component';
 import { AutentificacionesLayoutComponent } from './layouts/autentificaciones-layout/autentificaciones-layout.component';
+import { authGuard } from './guards/authguard.guard';
+import { noauthGuard } from './guards/noauthguard.guard';
 
 export const routes: Routes = [
   {
@@ -22,7 +24,7 @@ export const routes: Routes = [
     path: '',
     component: AutentificacionesLayoutComponent,
     children: [
-      { path: 'iniciar-sesion', component: IniciarSesionComponent },
+      { path: 'iniciar-sesion', component: IniciarSesionComponent, canActivate : [noauthGuard] },
       { path: 'crear-cuenta', component: CrearCuentaComponent },
       { path: 'recuperar-contrasena', component: RecuperarContrasenaComponent },
       { path: 'recuperar-codigo', component: RecuperarCodigoComponent },
@@ -36,9 +38,9 @@ export const routes: Routes = [
     component: ContenidoLayoutComponent,
     children: [
       { path: 'usuarios', component: UsuariosComponent },
-      { path: 'dashboards', component: DashboardComponent },
+      { path: 'dashboards', component: DashboardComponent, canActivate: [authGuard] },
       { path: 'invernaderos-card', component: InvernaderosCardComponent },
-      { path: 'tablero-principal', component: TableroPrincipalComponent },
+      { path: 'tablero-principal', component: TableroPrincipalComponent, canActivate : [authGuard] },
       { path: 'modal-codigo', component: ModalCodigoComponent }
     ]
   }

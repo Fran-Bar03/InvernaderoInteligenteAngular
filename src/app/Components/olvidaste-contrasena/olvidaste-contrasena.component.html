@@ -1,19 +1,38 @@
 <div class="container">
-    <div class="background">
-      <div class="header">
-        <h1>INVERNADERO INTELIGENTE</h1>
-        <h2>¿Olvidaste tú contraseña?</h2>
-      </div>
-  
-      <div class="form-container">
+  <div class="background">
+    <div class="header">
+      <h1>INVERNADERO INTELIGENTE</h1>
+      <h2>¿Olvidaste tú contraseña?</h2>
+    </div>
+
+    <div class="form-container">
+      <!-- Formulario con envío real (sin routerLink) -->
+      <form (ngSubmit)="enviarCodigo()">
+        <label>CORREO ELECTRÓNICO</label>
+        <!-- Input con vinculación de datos -->
+        <input 
+          type="email" 
+          [(ngModel)]="email"
+          name="email"
+          placeholder="hola@gmail.com"
+          required
+        >
         
-        <form>
-          <label>CORREO ELECTRÓNICO</label>
-          <input type="email" placeholder="hola@gmail.com">
-  
-          <button type="button" routerLink="/recuperar-codigo">Envíar código</button>
-          <p>¿Tienes una cuenta? <a routerLink="/iniciar-sesion">Iniciar sesión</a></p>
-        </form>
-      </div>
+        <!-- Botón de envío real -->
+        <button 
+          type="submit"
+          [disabled]="isLoading"
+        >
+          {{ isLoading ? 'Enviando...' : 'Enviar código' }}
+        </button>
+        
+        <!-- Mensaje de error (oculto por defecto) -->
+        <p *ngIf="mensajeError" class="error-message">
+          {{ mensajeError }}
+        </p>
+        
+        <p>¿Tienes una cuenta? <a routerLink="/iniciar-sesion">Iniciar sesión</a></p>
+      </form>
     </div>
   </div>
+</div>

@@ -1,26 +1,33 @@
 <div class="container">
     <div class="background">
-        <div class="header">
-            <h1>INVERNADERO INTELIGENTE</h1>
-            <h2>Crear una cuenta nueva</h2>
-            <p>¿Ya estás registrado? <a routerLink="/iniciar-sesion">Ingresa</a></p>
-        </div>
-        <div class="form-container">
-            <form>
-                <label>NOMBRE</label>
-                <input type="text" placeholder="Alexa Gastelum">
-
-                <label>CORREO ELECTRÓNICO</label>
-                <input type="email" placeholder="hola@gmail.com">
-
-                <label>CONTRASEÑA</label>
-                <input type="password" placeholder="********">
-
-                <label>CONFIRMAR CONTRASEÑA</label>
-                <input type="password" placeholder="********">
-
-                <button type="button" routerLink="/tablero-principal">Ingresar</button>
-            </form>
-        </div>
+      <div class="header">
+        <h1>INVERNADERO INTELIGENTE</h1>
+        <h2>Crear una cuenta nueva</h2>
+        <p>¿Ya estás registrado? <a routerLink="/iniciar-sesion">Ingresa</a></p>
+      </div>
+  
+      <div class="form-container">
+        <form (ngSubmit)="registrar()">
+          <label>NOMBRE</label>
+          <input type="text" placeholder="Alexa Gastelum" [(ngModel)]="NombreCompleto" name="nombreCompleto">
+  
+          <label>CORREO ELECTRÓNICO</label>
+          <input type="email" placeholder="hola@gmail.com" [(ngModel)]="Email" name="email">
+  
+          <label>CONTRASEÑA</label>
+          <input type="password" placeholder="********" [(ngModel)]="Contrasena" name="contrasena">
+  
+          <label>CONFIRMAR CONTRASEÑA</label>
+          <input type="password" placeholder="********" [(ngModel)]="ConfirmarContrasena" name="confirmarContrasena">
+  
+          <!-- Mostrar mensaje de error si existe -->
+          <div *ngIf="mensajeError" style="color: red; margin-bottom: 10px;">
+            {{ mensajeError }}
+          </div>
+  
+          <button type="submit">Registrarse</button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+  

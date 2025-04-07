@@ -1,24 +1,43 @@
 <div class="container">
-    <div class="background">
-      <div class="header">
-        <h1>INVERNADERO INTELIGENTE</h1>
-        <h2>Iniciar Sesión</h2>
-        <p>¿No tienes una cuenta? <a routerLink="/crear-cuenta">Registrate</a></p>
-      </div>
-  
-      <div class="form-container">
-        <form>
-          <label>CORREO ELECTRÓNICO</label>
-          <input type="email" placeholder="hola@gmail.com">
-  
-          <label>CONTRASEÑA</label>
-          <input type="password" placeholder="********">
-  
-          <button type="button" routerLink="/tablero-principal">Ingresar</button>
-          <p><a routerLink="/olvidaste-contrasena">¿Olvidaste tu contraseña?</a></p>
+  <div class="background">
+    <div class="header">
+      <h1>INVERNADERO INTELIGENTE</h1>
+      <h2>Iniciar Sesión</h2>
+      <p>¿No tienes una cuenta? <a routerLink="/crear-cuenta">Registrate</a></p>
+    </div>
 
-          <p><a routerLink="/crear-cuenta">Crear cuenta</a></p>
-        </form>
-      </div>
+    <div class="form-container">
+      <!-- Vinculamos el formulario con formGroup -->
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label for="email">CORREO ELECTRÓNICO</label>
+        <!-- Vinculamos el input con formControlName -->
+        <input id="email" type="email" formControlName="email" placeholder="hola@gmail.com">
+        <!-- Mostramos error si el campo email es inválido y ha sido tocado -->
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small class="error">Por favor ingresa un correo válido.</small>
+        </div>
+
+        <label for="contrasena">CONTRASEÑA</label>
+        <input id="contrasena" type="password" formControlName="contrasena" placeholder="********">
+        <!-- Mostramos error si el campo contrasena es inválido y ha sido tocado -->
+        <div *ngIf="loginForm.get('contrasena')?.invalid && loginForm.get('contrasena')?.touched">
+          <small class="error">La contraseña es obligatoria y debe tener al menos 6 caracteres.</small>
+        </div>
+
+        <!-- Mostrar mensaje de error general si las credenciales son incorrectas -->
+        <div *ngIf="mensajeError" class="error-message">
+          {{ mensajeError }}
+        </div>
+
+        <!-- Botón de submit -->
+        <button type="submit" [disabled]="loginForm.invalid || loading">
+          {{ loading ? 'Cargando...' : 'Ingresar' }}
+        </button>
+
+        <p><a routerLink="/olvidaste-contrasena">¿Olvidaste tu contraseña?</a></p>
+
+        <p><a routerLink="/crear-cuenta">Crear cuenta</a></p>
+      </form>
     </div>
   </div>
+</div>
