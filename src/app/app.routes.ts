@@ -13,6 +13,7 @@ import { ContenidoLayoutComponent } from './layouts/contenido-layout/contenido-l
 import { AutentificacionesLayoutComponent } from './layouts/autentificaciones-layout/autentificaciones-layout.component';
 import { authGuard } from './guards/authguard.guard';
 import { noauthGuard } from './guards/noauthguard.guard';
+import { AgregarInvernaderoComponent } from './Components/agregar-invernadero/agregar-invernadero.component';
 
 export const routes: Routes = [
   {
@@ -41,7 +42,8 @@ export const routes: Routes = [
       { path: 'dashboards', component: DashboardComponent, canActivate: [authGuard] },
       { path: 'invernaderos-card', component: InvernaderosCardComponent },
       { path: 'tablero-principal', component: TableroPrincipalComponent, canActivate : [authGuard] },
-      { path: 'modal-codigo', component: ModalCodigoComponent }
+      { path: 'modal-codigo', component: ModalCodigoComponent },
+      { path: 'agregar-invernadero', component: AgregarInvernaderoComponent }
     ]
   }
 ];

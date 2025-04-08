@@ -1,0 +1,56 @@
+<form (ngSubmit)="registrarUsuario()">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre Completo</label>
+      <input 
+        id="nombreCompleto" 
+        [(ngModel)]="nuevoUsuario.nombreCompleto" 
+        name="nombreCompleto" 
+        placeholder="Nombre Completo" 
+        required 
+        class="form-control" 
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Correo Electrónico</label>
+      <input 
+        id="email" 
+        [(ngModel)]="nuevoUsuario.email" 
+        name="email" 
+        placeholder="Correo Electrónico" 
+        required 
+        class="form-control" 
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input 
+        id="contrasena" 
+        [(ngModel)]="nuevoUsuario.contrasena" 
+        name="contrasena" 
+        placeholder="Contraseña" 
+        required 
+        type="password"
+        class="form-control" 
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <input 
+        id="rol" 
+        [(ngModel)]="nuevoUsuario.rol" 
+        name="rol" 
+        placeholder="Rol (1=Admin, 2=Usuario)" 
+        type="number" 
+        required
+        class="form-control" 
+      />
+    </div>
+  
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+    </div>
+  </form>
+  

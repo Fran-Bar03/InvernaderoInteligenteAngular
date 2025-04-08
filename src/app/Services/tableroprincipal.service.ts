@@ -8,6 +8,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class TableroprincipalService {
   private readonly APIurl = 'https://z7zsd20t-5148.usw3.devtunnels.ms/api/Invernadero/ListarInvernaderos';
+  private readonly APIurlBuscar = 'https://z7zsd20t-5148.usw3.devtunnels.ms/api/Invernadero/BuscarInvernadero';
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +16,8 @@ export class TableroprincipalService {
     return this.http.get<any[]>(this.APIurl)
   }
 
-  getInvernaderosName(filtro?: FiltroInvernadero): Observable<any[]> {
-    const params = filtro?.nombre ? { nombre: filtro.nombre } : {};
-    return this.http.get<any[]>(this.APIurl, { params });
+  buscarInvernaderos(nombre: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.APIurlBuscar}/buscarInvernaderos?nombre=${nombre}`);
   }
 }
+

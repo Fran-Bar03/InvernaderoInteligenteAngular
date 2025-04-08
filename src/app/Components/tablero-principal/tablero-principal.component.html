@@ -1,9 +1,13 @@
 <div class="header-simple">
-  <button class="btn-agregar" (click)="abrirModal()">Agregar</button>
   <h1 class="titulo-simple">Invernaderos</h1>
   <div class="acciones-simple">
-    <input type="text" class="buscar-simple" [(ngModel)]="busquedaNombre"  placeholder="Buscar...">
-    <button class="agregar-simple">Buscar</button>
+    <input 
+      type="text" 
+      [(ngModel)]="busquedaNombre" 
+      class="buscar-simple" 
+      placeholder="Buscar..."
+      (input)="buscarInvernaderos()">
+    <button class="agregar-simple" (click)="buscarInvernaderos()">Buscar</button>
   </div>
 </div>
 
@@ -63,4 +67,8 @@
     [imagen]="invernadero.imagen">
     </app-invernaderos-card>
   </div>
+</div>
+
+<div class="agregar-invernadero">
+  <button class="btn-agregar" (click)="IrAgregarInv()">Agregar</button>
 </div>

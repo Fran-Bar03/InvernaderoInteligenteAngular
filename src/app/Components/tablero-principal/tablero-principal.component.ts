@@ -9,11 +9,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router, RouterLink } from '@angular/router';
 
 // Interfaces
 interface MostrarInvernadero {
   nombre: string;
   imagen: string;
+}
+
+interface BuscarInvernadero {
+  nombre: string;
 }
 
 interface Usuario {
@@ -41,7 +46,7 @@ interface CrearInvernadero {
 @Component({
   selector: 'app-tablero-principal',
   standalone: true,
-  imports: [InvernaderosCardComponent, CommonModule, ReactiveFormsModule, MatSelectModule, MatOptionModule, MatFormFieldModule, MatInputModule, FormsModule],
+  imports: [InvernaderosCardComponent, CommonModule, ReactiveFormsModule, MatSelectModule, MatOptionModule, MatFormFieldModule, MatInputModule, FormsModule,],
   templateUrl: './tablero-principal.component.html',
   styleUrls: ['./tablero-principal.component.css']
 })
@@ -51,29 +56,28 @@ export class TableroPrincipalComponent implements OnInit {
   usuarios: Usuario[] = [];
   sensores: Sensor[] = [];
   invernaderos: MostrarInvernadero[] = [];
+  buscarInvernadero: BuscarInvernadero[] = [];
   busquedaNombre: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private crearInvernaderoService: InvernaderoService, private tableroPincipalService: TableroprincipalService) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private crearInvernaderoService: InvernaderoService, private tableroPincipalService: TableroprincipalService, private router : Router) {}
 
   ngOnInit(): void {
-    this.inicializarFormulario();
-    this.cargarUsuarios();
-    this.cargarSensores();
     this.cargarInvernaderos();
   }
 
-  inicializarFormulario(): void {
-    this.form = this.fb.group({
-      Nombre: ['', Validators.required],
-      NombrePlanta: ['', Validators.required],
-      TipoPlanta: ['', Validators.required],
-      MinTemperatura: [null, Validators.required],
-      MaxTemperatura: [null, Validators.required],
-      MinHumedad: [null, Validators.required],
-      MaxHumedad: [null, Validators.required],
-      usuariosIds: new FormControl([], Validators.required), // Usamos FormControl explícito
-      sensoresIds: new FormControl([], Validators.required)   // Usamos FormControl explícito
-    });
+  buscarInvernaderos(): void {
+    if (this.busquedaNombre.trim() === '') {
+      this.cargarInvernaderos(); // Si no hay búsqueda, muestra todos los invernaderos
+    } else {
+      this.tableroPincipalService.buscarInvernaderos(this.busquedaNombre).subscribe({
+        next: (data: BuscarInvernadero[]) => {
+          this.buscarInvernadero = data;
+        },
+        error: (err) => {
+          console.error('Error al buscar los invernaderos:', err);
+        }
+      });
+    }
   }
 
   get invernaderosFiltrados(): MostrarInvernadero[] {
@@ -95,94 +99,9 @@ export class TableroPrincipalComponent implements OnInit {
       }
     });
   }
-
-  cargarUsuarios(): void {
-    this.crearInvernaderoService.mostrarUsuarios().subscribe({
-      next: (data: Usuario[]) => {
-        console.log('Usuarios cargados:', data);
-        this.usuarios = data;
-      },
-      error: (err) => {
-        console.error('Error al cargar los usuarios:', err);
-      }
-    });
-  }
-
-  cargarSensores(): void {
-    this.crearInvernaderoService.mostrarSensores().subscribe({
-      next: (data: Sensor[]) => {
-        console.log('Sensores cargados:', data);
-        this.sensores = data;
-      },
-      error: (err) => {
-        console.error('Error al cargar los sensores:', err);
-      }
-    });
-  }
-
-  toggleSeleccion(tipo: 'usuario' | 'sensor', id: string): void {
-    const control = this.form.get(`${tipo}sIds`) as FormControl;
-    if (!control) return;
   
-    // Asegúrate de que el valor sea un arreglo
-    const valores = (control.value as string[]) || [];
-    const index = valores.indexOf(id);
-  
-    if (index > -1) {
-      // Si el ID ya está en el array, lo eliminamos
-      valores.splice(index, 1);
-    } else {
-      // Si el ID no está en el array, lo agregamos
-      valores.push(id);
-    }
-  
-    // Actualizamos el valor del formulario con el nuevo array de IDs
-    control.setValue([...valores]);
-  }
-
-  guardarInvernadero(): void {
-    if (this.form.valid) {
-      const {
-        Nombre,
-        NombrePlanta,
-        TipoPlanta,
-        MinTemperatura,
-        MaxTemperatura,
-        MinHumedad,
-        MaxHumedad,
-        usuariosIds,
-        sensoresIds
-      } = this.form.value;
-  
-      this.crearInvernaderoService.registrarInvernadero(
-        Nombre,
-        NombrePlanta,
-        TipoPlanta,
-        MinTemperatura,
-        MaxTemperatura,
-        MinHumedad,
-        MaxHumedad,
-        usuariosIds,
-        sensoresIds
-      ).subscribe({
-        next: () => {
-          alert('Invernadero registrado exitosamente.');
-          this.cerrarModal();
-        },
-        error: (error) => {
-          console.error('Error al registrar el invernadero:', error);
-          alert(error.error?.mensaje || 'Hubo un problema al registrar el invernadero.');
-        }
-      });
-    } else {
-      alert('Por favor, completa todos los campos obligatorios.');
-    }
-  }
-  
-
-  abrirModal(): void {
-    this.form.reset();
-    this.mostrarModal = true;
+  IrAgregarInv(): void {
+    this.router.navigate(['/agregar-invernadero']);
   }
 
   cerrarModal(): void {

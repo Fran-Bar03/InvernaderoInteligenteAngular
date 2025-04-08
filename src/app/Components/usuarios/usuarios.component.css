@@ -1,0 +1,145 @@
+/* Contenedor principal del componente usuarios */
+.usuarios-container {
+    position: fixed; /* Fijar el contenedor */
+    left: 380px; /* Desplazarlo a la derecha */
+    top: 0; /* Fijarlo desde la parte superior */
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1100px;
+    overflow-y: auto; /* Permitir el desplazamiento dentro del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    max-height: 100vh; /* Asegura que el contenedor no sobrepase el alto de la pantalla */
+  }
+  
+  /* Título */
+  .usuarios-container h2,
+  .usuarios-container h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2e4431;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilo del formulario */
+  .usuarios-container form {
+    background-color: #f3f7f3;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  
+  /* Form groups */
+  .usuarios-container .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Etiquetas */
+  .usuarios-container label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #35543a;
+  }
+  
+  /* Inputs */
+  .usuarios-container input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #b2c8a8;
+    border-radius: 6px;
+    margin-top: 6px;
+    background-color: #fefefe;
+  }
+  
+  /* Focus en inputs */
+  .usuarios-container input:focus {
+    outline: none;
+    border-color: #5a703d;
+    box-shadow: 0 0 5px rgba(90, 112, 61, 0.4);
+  }
+  
+  /* Botón */
+  .usuarios-container button {
+    background-color: #5a703d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+  }
+  
+  /* Tabla de usuarios */
+  .usuarios-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Encabezado de tabla */
+  .usuarios-container table th {
+    background-color: #5a703d;
+    color: white;
+    font-weight: 600;
+    padding: 16px 20px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Celdas */
+  .usuarios-container table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  /* Zebra striping */
+  .usuarios-container table tr:nth-child(odd) {
+    background-color: #f8fdf6;
+  }
+  
+  .usuarios-container table tr:nth-child(even) {
+    background-color: #eef6ec;
+  }
+  
+  .usuarios-container table tr:hover {
+    background-color: #dff1da;
+    /* Sin animación de escala */
+  }
+  
+  /* Responsive ajustes */
+  @media (max-width: 768px) {
+    .usuarios-container {
+      left: 0; /* En pantallas más pequeñas se ajusta a toda la pantalla */
+      padding: 20px;
+    }
+  
+    .usuarios-container form {
+      padding: 20px;
+    }
+  
+    .usuarios-container table th,
+    .usuarios-container table td {
+      padding: 12px;
+      font-size: 14px;
+    }
+  }
+  

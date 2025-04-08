@@ -1,5 +1,6 @@
+/* Estilo global */
 body {
-  background-color: white;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
   font-family: 'Georgia', serif;
@@ -10,10 +11,14 @@ body {
   text-align: center;
   font-size: 45px;
   color: #4a5d3c;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Contenedor principal */
 .dashboard-visual {
   padding: 40px 80px;
   display: flex;
@@ -21,8 +26,12 @@ body {
   gap: 50px;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
+/* Sección */
 .section {
   background-color: #a9bc8d;
   border-radius: 30px;
@@ -34,6 +43,7 @@ body {
 
 .section:hover {
   transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .section-title {
@@ -41,7 +51,7 @@ body {
   top: -25px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: bold;
   color: white;
   padding: 12px 40px;
@@ -51,6 +61,7 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Colores personalizados */
 .agua {
   background-color: #768b67;
 }
@@ -59,6 +70,7 @@ body {
   background-color: #b5c9a0;
 }
 
+/* Fila de gráficos */
 .charts-row {
   display: flex;
   gap: 30px;
@@ -75,11 +87,12 @@ body {
   min-width: 280px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chart-box:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 .chart-box h3 {
@@ -94,6 +107,7 @@ canvas {
   height: auto;
 }
 
+/* Fila de indicadores */
 .indicators-row {
   display: flex;
   justify-content: space-between;
@@ -126,6 +140,7 @@ canvas {
   text-align: center;
 }
 
+/* Media Queries para mejorar la responsividad */
 @media (max-width: 1024px) {
   .dashboard-visual {
     padding: 40px 20px;
@@ -187,14 +202,14 @@ canvas {
     gap: 30px;
     justify-content: space-between;
     margin-top: 40px;
-    flex-wrap: nowrap; /* Evitar que las gráficas se envuelvan en pantallas pequeñas */
+    flex-wrap: nowrap;
   }
   
   .chart-box {
     background-color: #8c9b70;
     border-radius: 20px;
     padding: 25px;
-    width: 48%; /* Ajusta ligeramente para mayor espacio */
+    width: 48%;
     min-width: 280px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -204,7 +219,6 @@ canvas {
   .chart-box:hover {
     transform: translateY(-5px);
   }
-  
 
   .indicators-row {
     justify-content: space-between;

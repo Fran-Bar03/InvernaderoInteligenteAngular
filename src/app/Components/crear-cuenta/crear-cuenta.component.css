@@ -125,3 +125,12 @@ a {
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* Estilo para el mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
