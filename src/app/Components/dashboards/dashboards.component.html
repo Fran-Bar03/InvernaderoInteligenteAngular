@@ -1,43 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  
-  <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ+K1Xh6bX9O6L7hJ9vvTfjQpifpxcbU6+/UnkSlJldFqH30gdyT0Y9r9sdO" crossorigin="anonymous">
+ <body>
+  <div class="background-container">
+    <div class="graph-content">
 
-  <meta charset="UTF-8">
-  <title>Estadísticas</title>
-</head>
-<body>
-  <div class="dashboard-visual">
-    <h1 class="main-title">ESTADÍSTICAS</h1>
-
-    <!-- Sección de gráficas circulares -->
-    <section class="section">
-      <div class="section-title agua">GRÁFICAS</div>
-      <div class="charts-row">
-        <div class="chart-box">
-          <h3>Primera Gráfica</h3>
-          <canvas id="chart1"></canvas>
+      <!-- Parte superior: solo un recuadro blanco -->
+      <div class="graph-top-cards">
+        <div class="top-card">
+            <div class="graph-comtainer">
+              <canvas id="chart1"></canvas> <!-- Aquí se renderiza la gráfica combinada -->
+            </div>
         </div>
-        <div class="chart-box">
-          <h3>Segunda Gráfica</h3>
-          <canvas id="chart2"></canvas>
+      </div> 
+
+      <!-- Recuadro verde abajo centrado y delgado -->
+      <div class="graph-header">
+        <h3>Temperatura actual: 25°C | Humedad: 60%</h3>
+      </div> 
+
+      <!-- Recuadro inferior con imágenes y textos -->
+      <div class="graph-footer">
+        <h3>Información Adicional</h3>
+        <div class="image-circles">
+          <div>
+            <div class="circle-img">
+              <img src="http://imgfz.com/i/CZJOglL.jpeg" alt="Agua" />
+            </div>
+            <p class="image-description">
+              El control de agua optimiza el riego con sistemas automatizados como goteo o hidroponía para ajustar la hidratación según las necesidades del cultivo.
+            </p>
+          </div>
+          <div>
+            <div class="circle-img">
+              <img src="http://imgfz.com/i/cQg8kPw.jpeg" alt="Luz" />
+            </div>
+            <p class="image-description">
+              El control de luz regula la iluminación y sistemas automatizados, ajustando la intensidad y duración según las necesidades del cultivo.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Sección de indicadores -->
-    <section class="section">
-      <div class="section-title energia">CONSUMO GENERAL</div>
-      <div class="indicators-row">
-        <div class="indicator-card"><h3>Temperatura</h3></div>
-        <div class="indicator-card"><h3>Humedad</h3></div>
-        <div class="indicator-card"><h3>Luz Solar</h3></div>
-        <div class="indicator-card"><h3>Óptimo</h3></div>
-      </div>
-    </section>
+    </div>
   </div>
-
-</body>
-</html>
+</body> 

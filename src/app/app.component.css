@@ -1,15 +1,27 @@
+/* Estructura principal */
+.app-grid {
+  height: 100vh;
+}
+
 .app-container {
   display: flex;
-  height: 100vh; /* Ocupar toda la altura de la pantalla */
+  height: 100%;
 }
 
+/* Sidebar styles */
 app-side-bar {
-  width: 230px; /* Ajusta el ancho del sidebar */
-  flex-shrink: 0; /* Evita que se reduzca su tamaño */
+  width: 230px;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
+/* Contenido principal */
 .main-content {
-  flex-grow: 1; /* Ocupar todo el espacio disponible */
-  padding: 20px; /* Espaciado para que no quede pegado */
-  overflow-x: auto;
+  flex-grow: 1;
+  position: relative;
+  min-height: 100vh;
+  padding: 0; /* Eliminamos el padding para que el dashboard lo controle */
 }

@@ -21,6 +21,10 @@ export class UsuariosComponent implements OnInit {
     invernaderos: [],
   };
 
+mostrarModal = false;
+usuarioSeleccionado: Usuario | null = null;
+correoConfirmacion: string = '';
+
   constructor(private usuarioService: UsuariosService) {}
 
   ngOnInit(): void {
@@ -68,6 +72,42 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+
+  // Método para abrir el modal de eliminación y prellenar el correo del usuario seleccionado
+abrirModalEliminar(usuario: Usuario): void {
+  this.usuarioSeleccionado = usuario;
+  this.correoConfirmacion = usuario.email;  // Establecer el correo del usuario seleccionado en el modal
+  this.mostrarModal = true;  // Mostrar el modal
+}
+  
+  cerrarModal(): void {
+    this.mostrarModal = false;
+    this.usuarioSeleccionado = null;
+    this.correoConfirmacion = '';
+  }
+  
+  eliminarUsuarioConfirmado(): void {
+    if (!this.usuarioSeleccionado) return;
+  
+    // Asegurarnos de que el correo sea el que corresponde al usuario seleccionado
+    const correoEliminar = this.usuarioSeleccionado.email;
+  
+    // Llamar al servicio para eliminar el usuario utilizando el correo
+    this.usuarioService.eliminarUsuarioPorEmail(correoEliminar).subscribe({
+      next: () => {
+        // Eliminarlo localmente de la lista de usuarios
+        this.usuarios = this.usuarios.filter(u => u.email !== correoEliminar);
+        this.cerrarModal();
+        console.log('Usuario eliminado');
+      },
+      error: (error) => {
+        console.error('Error al eliminar el usuario:', error);
+      }
+    });
+  }
+  
+
+
 }
 
 

@@ -9,6 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './invernaderos-card.component.css'
 })
 export class InvernaderosCardComponent {
-  @Input() nombre!: string;
-  @Input() imagen!: string;
+  @Input() invernadero!: { Nombre: string; Imagen: string };
 }

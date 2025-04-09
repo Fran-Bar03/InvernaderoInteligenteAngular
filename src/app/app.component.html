@@ -1,8 +1,10 @@
-<div class="app-container">
-  <app-side-bar *ngIf="!isAuthRoute()"></app-side-bar> 
+<div class="app-grid">
+  <div class="app-container">
+    <app-side-bar class="sidebar" *ngIf="!isAuthRoute()"></app-side-bar> 
 
-  <!-- Contenido principal -->
-  <div class="main-content">
-    <router-outlet></router-outlet>
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

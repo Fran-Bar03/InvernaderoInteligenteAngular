@@ -1,7 +1,11 @@
 <div class="tarjeta-invernadero">
   <div class="invernadero-contenido">
-    <img [src]="imagen" alt="{{ nombre }}" class="invernadero-imagen">
-    <h3 class="nombre-inv">{{ nombre }}</h3>
+    <img 
+      [src]="invernadero.Imagen" 
+      alt="Imagen del invernadero"
+      class="invernadero-imagen"
+    />
+    <h3 class="nombre-inv">{{ invernadero.Nombre }}</h3>
     <a class="det-invernaderos" routerLink="/dashboards">VER DETALLES</a>
   </div>
 </div>

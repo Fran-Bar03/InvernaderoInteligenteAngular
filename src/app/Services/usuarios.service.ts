@@ -39,4 +39,13 @@ export class UsuariosService {
 
     return this.http.post<Usuario>(this.apiUrlRegistrar, usuarioRegistrado);
   }
+
+
+// Método para eliminar un usuario por correo electrónico
+eliminarUsuarioPorEmail(correo: string): Observable<any> {
+  return this.http.delete(`http://localhost:5148/api/Usuario/BorrarUsuario/${encodeURIComponent(correo)}`);
+}
+
+
+  
 }

@@ -1,74 +1,98 @@
-<div class="header-simple">
-  <h1 class="titulo-simple">Invernaderos</h1>
+<!-- Barra de búsqueda -->
+<div class="barra-busqueda-container">
   <div class="acciones-simple">
     <input 
       type="text" 
-      [(ngModel)]="busquedaNombre" 
       class="buscar-simple" 
-      placeholder="Buscar..."
-      (input)="buscarInvernaderos()">
-    <button class="agregar-simple" (click)="buscarInvernaderos()">Buscar</button>
+      [(ngModel)]="nombreBusqueda"  
+      placeholder="Buscar...">
+    <button class="boton-buscar" (click)="buscarInvernaderos()">Buscar</button>
   </div>
 </div>
 
-<div class="contenido-principal">
-  <!-- Modal -->
-  <div *ngIf="mostrarModal" class="modal">
-    <form [formGroup]="form" (ngSubmit)="guardarInvernadero()">
-      <label for="Nombre">Nombre:</label>
-      <input id="Nombre" formControlName="Nombre" type="text" />
-  
-      <label for="NombrePlanta">Nombre de la Planta:</label>
-      <input id="NombrePlanta" formControlName="NombrePlanta" type="text" />
-  
-      <label for="TipoPlanta">Tipo de Planta:</label>
-      <input id="TipoPlanta" formControlName="TipoPlanta" type="text" />
-  
-      <label for="MinTemperatura">Temperatura Mínima:</label>
-      <input id="MinTemperatura" formControlName="MinTemperatura" type="number" />
-  
-      <label for="MaxTemperatura">Temperatura Máxima:</label>
-      <input id="MaxTemperatura" formControlName="MaxTemperatura" type="number" />
-  
-      <label for="MinHumedad">Humedad Mínima:</label>
-      <input id="MinHumedad" formControlName="MinHumedad" type="number" />
-  
-      <label for="MaxHumedad">Humedad Máxima:</label>
-      <input id="MaxHumedad" formControlName="MaxHumedad" type="number" />
-  
-      <!-- Checkboxes para Usuarios -->
-      <!--<mat-form-field appearance="fill">
-        <mat-label>Selecciona usuarios</mat-label>
-        <mat-select multiple [formControl]="form.controls.usuariosIds">
-          <mat-option *ngFor="let usuario of usuarios" [value]="usuario._id">
-            {{ usuario.NombreCompleto }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>-->
-      
-      <!--<mat-form-field appearance="fill">
-        <mat-label>Selecciona sensores</mat-label>
-        <mat-select multiple [formControl]="form.controls.sensoresIds">
-          <mat-option *ngFor="let sensor of sensores" [value]="sensor._id">
-            {{ sensor.Tipo }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>-->
-  
-      <button type="submit">Guardar</button>
-      <button type="button" (click)="cerrarModal()">Cancelar</button>
+<div class="titulo-principal">
+  <h3>Mis Invernaderos</h3>
+</div>
+
+<div *ngIf="mostrarModalAgregar" class="modal show">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Agregar Invernadero</h5>
+      <button class="close" (click)="cerrarModalAgregar()">×</button>
+    </div>
+
+    <form (ngSubmit)="agregarInvernadero()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.Nombre" name="nombre" required />
+      </div>
+
+      <div class="form-group">
+        <label for="nombrePlanta">Nombre de Planta</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.NombrePlanta" name="nombrePlanta" required />
+      </div>
+
+      <div class="form-group">
+        <label for="tipoPlanta">Tipo de Planta</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.TipoPlanta" name="tipoPlanta" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="minTemperatura">Temperatura Mín.</label>
+          <input type="number" [(ngModel)]="nuevoInvernadero.MinTemperatura" name="minTemperatura" required />
+        </div>
+
+        <div class="form-group">
+          <label for="maxTemperatura">Temperatura Máx.</label>
+          <input type="number" [(ngModel)]="nuevoInvernadero.MaxTemperatura" name="maxTemperatura" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="minHumedad">Humedad Mín.</label>
+          <input type="number" [(ngModel)]="nuevoInvernadero.MinHumedad" name="minHumedad" required />
+        </div>
+
+        <div class="form-group">
+          <label for="maxHumedad">Humedad Máx.</label>
+          <input type="number" [(ngModel)]="nuevoInvernadero.MaxHumedad" name="maxHumedad" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="usuarios">Usuarios (Separado por comas)</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.Usuarios" name="usuarios" required />
+      </div>
+
+      <div class="form-group">
+        <label for="sensores">Sensores (Separado por comas)</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.Sensores" name="sensores" required />
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">Imagen (URL)</label>
+        <input type="text" [(ngModel)]="nuevoInvernadero.Imagen" name="imagen" required />
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModalAgregar()">Cancelar</button>
+        <button type="submit" class="btn btn-danger" (click)="agregarInvernadero()">Agregar</button>
+      </div>
     </form>
   </div>
+</div>
 
+<!--NO TOCAR, NO CAMBIAR, NO NADA-->
 <div class="dashboard">
-  <div *ngFor="let invernadero of invernaderosFiltrados">
+  <div class="cards-container">
     <app-invernaderos-card 
-    [nombre]="invernadero.nombre"
-    [imagen]="invernadero.imagen">
+      *ngFor="let invernadero of mostrarInv" 
+      [invernadero]="invernadero">
     </app-invernaderos-card>
   </div>
 </div>
 
-<div class="agregar-invernadero">
-  <button class="btn-agregar" (click)="IrAgregarInv()">Agregar</button>
-</div>
+<!-- Botón para agregar un nuevo invernadero -->
+<button class="boton-agregar" (click)="abrirModalAgregar()">+</button>

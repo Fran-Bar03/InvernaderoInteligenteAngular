@@ -1,80 +1,72 @@
 <div class="usuarios-container">
-    <!-- Formulario para registrar un nuevo usuario -->
-    <h3>Registrar Usuarios</h3>
-    <form (ngSubmit)="registrarUsuario()">
-        <div class="form-group">
-          <label for="nombreCompleto">Nombre Completo</label>
-          <input 
-            id="nombreCompleto" 
-            [(ngModel)]="nuevoUsuario.nombreCompleto" 
-            name="nombreCompleto" 
-            placeholder="Nombre Completo" 
-            required 
-            class="form-control" 
-          />
-        </div>
-      
-        <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <input 
-            id="email" 
-            [(ngModel)]="nuevoUsuario.email" 
-            name="email" 
-            placeholder="Correo Electrónico" 
-            required 
-            class="form-control" 
-          />
-        </div>
-      
-        <div class="form-group">
-          <label for="contrasena">Contraseña</label>
-          <input 
-            id="contrasena" 
-            [(ngModel)]="nuevoUsuario.contrasena" 
-            name="contrasena" 
-            placeholder="Contraseña" 
-            required 
-            type="password"
-            class="form-control" 
-          />
-        </div>
-      
-        <!-- Ahora el campo de rol es editable por el usuario -->
-        <div class="form-group">
-          <label for="rol">Rol</label>
-          <input 
-            id="rol" 
-            [(ngModel)]="nuevoUsuario.rol" 
-            name="rol" 
-            placeholder="Rol (1=Admin, 2=Usuario)"
-            type="number"
-            required
-            class="form-control" 
-          />
-        </div>
-      
-        <button type="submit" class="btn btn-primary">Registrar Usuario</button>
-      </form>
-  
-    <!-- Tabla para mostrar los usuarios -->
-    <h3>Usuarios Registrados</h3>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nombre Completo</th>
-          <th>Correo Electrónico</th>
-          <th>Rol</th>
-          <th>Invernaderos</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>{{ usuario.nombreCompleto }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.rol === 1 ? 'Administrador' : 'Usuario' }}</td>
-          <td>{{ usuario.invernaderos ? usuario.invernaderos.join(', ') : 'No asignados' }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Registrar Usuarios</h2>
+  <form (ngSubmit)="registrarUsuario()">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre Completo</label>
+      <input id="nombreCompleto" [(ngModel)]="nuevoUsuario.nombreCompleto" name="nombreCompleto" placeholder="Nombre Completo" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo Electrónico</label>
+      <input id="email" [(ngModel)]="nuevoUsuario.email" name="email" placeholder="Correo Electrónico" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input id="contrasena" [(ngModel)]="nuevoUsuario.contrasena" name="contrasena" placeholder="Contraseña" required type="password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <input id="rol" [(ngModel)]="nuevoUsuario.rol" name="rol" placeholder="Rol (1=Admin, 2=Usuario)" type="number" required class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+  </form>
+
+  <h3>Usuarios Registrados</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre Completo</th>
+        <th>Correo Electrónico</th>
+        <th>Rol</th>
+        <th>Invernaderos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.usuarioId }}</td>
+        <td>{{ usuario.nombreCompleto }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.rol === 1 ? 'Administrador' : 'Usuario' }}</td>
+        <td>{{ usuario.invernaderos ? usuario.invernaderos.join(', ') : 'No asignados' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="abrirModalEliminar(usuario)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- Modal para eliminar usuario -->
+<div class="modal fade" [ngClass]="{ 'show': mostrarModal }" tabindex="-1" role="dialog" *ngIf="mostrarModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Eliminación</h5>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar al usuario con el correo: <strong>{{ usuarioSeleccionado?.email }}</strong>?</p>
+      </div>
+      <div class="modal-footer">
+        <!-- Botón de cancelar -->
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+        <!-- Botón de eliminar -->
+        <button type="button" class="btn btn-danger" (click)="eliminarUsuarioConfirmado()">Eliminar</button>
+      </div>
+    </div>
   </div>
-  
+</div>
+

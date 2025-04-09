@@ -12,7 +12,6 @@ describe('DashboardsComponent', () => {
       imports: [DashboardComponent]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
